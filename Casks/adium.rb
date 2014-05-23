@@ -1,7 +1,7 @@
 class Adium < Cask
-  url 'http://download.adium.im/Adium_1.5.6.dmg'
-  homepage 'http://www.adium.im/'
-  version '1.5.6'
-  sha1 'eb56eae25f82fb2e2c7b08abe7ce197e61d4360d'
+  url 'http://download.adium.im/Adium_1.5.10.dmg'
+  homepage 'https://www.adium.im/'
+  version '1.5.10'
+  sha256 'bca3ac81d33265b71c95a3984be80715fbd98f38d7c463d0441d43a335ed399a'
   link 'Adium.app'
 end

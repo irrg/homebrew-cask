@@ -1,7 +1,7 @@
 class Insync < Cask
-  url 'http://s.insynchq.com/builds/Insync-1.0.15.31570.dmg'
-  homepage 'http://insynchq.com/'
-  version '1.0.15.31570'
-  sha1 'a4b594b165caa3f8df093880a4d0228e98d38264'
+  url 'http://s.insynchq.com/builds/Insync-1.0.26.31705.dmg'
+  homepage 'https://insynchq.com/'
+  version '1.0.26.31705'
+  sha256 '620852c8a60e67385bc05bbb18619443088fa2485a11180047a8552864183a8a'
   link 'Insync.app'
 end

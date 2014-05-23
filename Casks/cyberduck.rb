@@ -1,7 +1,7 @@
 class Cyberduck < Cask
-  url 'http://cyberduck.ch/Cyberduck-4.3.1.zip'
-  homepage 'http://cyberduck.ch'
-  version '4.3.1'
-  sha1 '5a162b2dfc3c6a61b6ef91c6a4ac682161ca58b2'
+  url 'https://update.cyberduck.io/Cyberduck-4.4.4.zip'
+  homepage 'http://cyberduck.io/'
+  version '4.4.4'
+  sha256 '6890bb78afa253d3f069f8225abeb7b4e41b9162b945c0a26041be34eab3f6eb'
   link 'Cyberduck.app'
 end

@@ -1,7 +1,8 @@
 class Pgadmin3 < Cask
-  url 'http://ftp.postgresql.org/pub/pgadmin3/release/v1.16.1/osx/pgadmin3-1.16.1.dmg'
+  # note: "3" is not a version number, but indicates a different vendor
+  url 'http://ftp.postgresql.org/pub/pgadmin3/release/v1.18.1/osx/pgadmin3-1.18.1.dmg'
   homepage 'http://pgadmin.org'
-  version '1.16.1'
-  sha1 '634e39c9e3971bf8a6565dd85e0a98918c2506ad'
+  version '1.18.1'
+  sha256 '6fe924168c7a8ee9224527fcafc3e612de60c011a27dc44b8293401ff346627d'
   link 'pgAdmin3.app'
 end

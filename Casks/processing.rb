@@ -1,7 +1,7 @@
 class Processing < Cask
-  url 'http://processing.googlecode.com/files/processing-2.0-macosx.zip'
+  url 'http://download.processing.org/processing-2.2.1-macosx.zip'
   homepage 'http://processing.org/'
-  version '2.0'
-  sha1 '8c88c840be2cd2d5579609c4d67a71b6ec163763'
+  version '2.2.1'
+  sha256 '8c237b3eb50626e8ffc648bfdeddaa18ceffbd6a48f8fec77a8eab5b774971fc'
   link 'Processing.app'
 end

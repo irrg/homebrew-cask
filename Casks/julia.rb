@@ -1,7 +1,7 @@
 class Julia < Cask
-  url 'https://julialang.googlecode.com/files/Julia-0.1.2.dmg'
+  url 'https://s3.amazonaws.com/julialang/bin/osx/x64/0.2/julia-0.2.1-osx10.7+.dmg'
   homepage 'http://julialang.org/'
-  version '0.1.2'
-  sha1 'c6e5cf8ba49d3f995821864531a0f31a85bbc31b'
-  link 'Julia.app'
+  version '0.2.1'
+  sha256 '598c2e9051029ad8943d2de251602881fe183260df9afda8201f46587f1b9df4'
+  link 'Julia-0.2.1.app'
 end

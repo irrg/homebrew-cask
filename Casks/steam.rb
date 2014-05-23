@@ -1,7 +1,7 @@
 class Steam < Cask
   url 'http://media.steampowered.com/client/installer/steam.dmg'
   homepage 'http://store.steampowered.com/about/'
-  version 'stable'
-  no_checksum
+  version 'latest'
+  sha256 :no_check
   link 'Steam.app'
 end

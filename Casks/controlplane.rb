@@ -1,7 +1,7 @@
 class Controlplane < Cask
-  url 'http://www.controlplaneapp.com/download/1.3.14'
+  url 'http://www.controlplaneapp.com/download/1.5.1'
   homepage 'http://www.controlplaneapp.com/'
-  version '1.3.14'
-  sha1 '0f679aab5ab1f470e0ebb752055575508248ffd8'
+  version '1.5.1'
+  sha256 '6815cef473b9404ab2b0e4c57e9610de0adaae80159eba597f28c44dacb14bf2'
   link 'ControlPlane.app'
 end

@@ -1,7 +1,7 @@
 class Ukelele < Cask
-  url 'http://scripts.sil.org/cms/scripts/render_download.php?format=file&media_id=Ukelele_2.2.4&filename=Ukelele_2.2.4.dmg'
+  url 'http://scripts.sil.org/cms/scripts/render_download.php?format=file&media_id=Ukelele_2.2.8&filename=Ukelele_2.2.8.dmg'
   homepage 'http://scripts.sil.org/ukelele'
-  version '2.2.4'
-  sha1 'f322ccfbc5b2efb24d0d5cf902dfd0ae552322e5'
+  version '2.2.8'
+  sha256 'e6200f418dee4ad10fa126536218086273ef8e896b95ede8ba73ddb42ed02ec3'
   link 'Ukelele.app'
 end

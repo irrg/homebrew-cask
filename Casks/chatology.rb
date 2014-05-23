@@ -1,7 +1,8 @@
 class Chatology < Cask
   url 'http://flexibits.com/chatology/download'
+  appcast 'https://flexibits.com/chatology/appcast.php'
   homepage 'http://flexibits.com/chatology'
   version 'latest'
-  no_checksum
+  sha256 :no_check
   link 'Chatology.app'
 end

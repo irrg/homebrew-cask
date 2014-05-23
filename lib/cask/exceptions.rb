@@ -43,3 +43,40 @@ class CaskAlreadyInstalledError < CaskError
     "Cask for #{name} is already installed. Use `--force` to install anyways."
   end
 end
+
+class CaskCommandFailedError < CaskError
+  def initialize cmd, output
+    @cmd = cmd
+    @output = output
+  end
+
+  def to_s;
+    <<-EOS.undent
+      Command failed to execute!
+
+      ==> Failed command:
+      #{@cmd}
+
+      ==> Output of failed command:
+      #{@output}
+    EOS
+  end
+end
+
+class CaskUnspecifiedError < CaskError
+  def to_s
+    "This command requires a cask's name"
+  end
+end
+
+class CaskInvalidError < CaskError
+  attr_reader :name, :submsg
+  def initialize(name, *submsg)
+    @name = name
+    @submsg = submsg.join(' ')
+  end
+
+  def to_s
+    "Cask '#{name}' definition is invalid" + (submsg.length > 0 ? ": #{submsg}" : '')
+  end
+end

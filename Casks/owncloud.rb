@@ -1,7 +1,7 @@
 class Owncloud < Cask
-  url 'http://download.owncloud.com/download/ownCloud-1.2.5.dmg'
+  url 'http://download.owncloud.com/desktop/stable/ownCloud-1.5.4.2580.dmg'
   homepage 'http://owncloud.com'
-  version '1.2.5'
-  sha1 'dbc1e9880caa25535861aee351bd39c1942ded62'
+  version '1.5.4.2580'
+  sha256 '2dd1b7cb5263a7cb5d5363290ec02d76305f6599941c1cd2f35399b319972503'
   link 'owncloud.app'
 end

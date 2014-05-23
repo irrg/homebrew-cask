@@ -1,7 +1,8 @@
 class Imageoptim < Cask
-  url 'http://imageoptim.com/ImageOptim1.4.1.2.tar.bz2'
+  url 'http://imageoptim.com/ImageOptim.tbz2'
+  appcast 'http://imageoptim.com/appcast.xml'
   homepage 'http://imageoptim.com/'
-  version '1.4.1.2'
-  sha1 'dff8448cb4ff2ba754769db55cdd13ee88a10cf2'
+  version 'latest'
+  sha256 :no_check
   link 'ImageOptim.app'
 end

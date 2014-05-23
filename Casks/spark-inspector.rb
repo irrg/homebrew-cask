@@ -1,7 +1,8 @@
 class SparkInspector < Cask
   url 'http://sparkinspector.com/downloads/sparkinspector.dmg'
+  appcast 'http://sparkinspector.com/sparkle/feed.xml'
   homepage 'http://sparkinspector.com/'
   version 'latest'
-  no_checksum
+  sha256 :no_check
   link 'Spark Inspector.app'
 end
