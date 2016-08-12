@@ -1,7 +1,11 @@
-class NavicatForSqlServer < Cask
-  url 'http://download.navicat.com/download/navicat110_sqlserver_en.dmg'
-  homepage 'http://www.navicat.com/products/navicat-for-sqlserver'
-  version '11.0.17'
-  sha256 'c3aa1e8faa11f5a5646a55007963a151e38c1bb578ee5c90418280f2691c3e7c'
-  link 'Navicat For SQL Server.app'
+cask 'navicat-for-sql-server' do
+  version '11.2.13'
+  sha256 '616573369bea934551601c4cb7599f2651fea5fe12529989c9fd76b945c0ab94'
+
+  url "http://download.navicat.com/download/navicat#{version.major_minor.no_dots}_sqlserver_en.dmg"
+  name 'Navicat for SQL Server'
+  homepage 'https://www.navicat.com/products/navicat-for-sqlserver'
+  license :commercial
+
+  app 'Navicat For SQL Server.app'
 end

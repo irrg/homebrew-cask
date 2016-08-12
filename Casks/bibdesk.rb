@@ -1,7 +1,18 @@
-class Bibdesk < Cask
-  url 'http://downloads.sourceforge.net/project/bibdesk/BibDesk/BibDesk-1.6.2/BibDesk-1.6.2.dmg'
+cask 'bibdesk' do
+  version '1.6.6'
+  sha256 '40bdefb6a16f41952fbda990549f19eb0622f3c276055212341f616df48885da'
+
+  url "https://downloads.sourceforge.net/bibdesk/BibDesk/BibDesk-#{version}/BibDesk-#{version}.dmg"
+  appcast 'http://bibdesk.sourceforge.net/bibdesk.xml',
+          checkpoint: 'a1191d16ecb3c1958a0b9c47ac6862d88841644a949f0c95a18622144c796565'
+  name 'BibDesk'
   homepage 'http://bibdesk.sourceforge.net/'
-  version '1.6.2'
-  sha256 'f06b15290f57c95418fd1441d6dd7b61ce9b95a6953d3a231dcb390f64bfcce0'
-  link 'BibDesk.app'
+  license :bsd
+
+  app 'BibDesk.app'
+
+  zap delete: [
+                '~/Library/Preferences/edu.ucsd.cs.mmccrack.bibdesk.plist',
+                '~/Library/Application Support/BibDesk',
+              ]
 end

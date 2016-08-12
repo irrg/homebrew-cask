@@ -1,7 +1,13 @@
-class Quickradar < Cask
-  url 'http://www.quickradar.com/0.8.zip'
+cask 'quickradar' do
+  version '1.0b3'
+  sha256 '9347de5c966bae6b5c1ca0521d3d8c965afdfb184740f8c170b2e5a02f902ee0'
+
+  url "http://www.quickradar.com/#{version}.zip"
+  appcast 'http://www.quickradar.com/appcast.xml',
+          checkpoint: '56e93a67fa6149774b3477d167300f9f15e00a362db02b5a01ff1fc7034e133a'
+  name 'QuickRadar'
   homepage 'http://www.quickradar.com/'
-  version '0.8'
-  sha256 'fbe74ffe8f1615a6af64868b697321fe68b505d4f2e3eba7d5e3cf4cab082a1c'
-  link 'QuickRadar.app'
+  license :bsd
+
+  app 'QuickRadar.app'
 end

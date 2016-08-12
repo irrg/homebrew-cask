@@ -1,7 +1,18 @@
-class Sketchup < Cask
-  url 'http://dl.trimble.com/sketchup/SketchUpMEN.dmg'
-  homepage 'http://www.sketchup.com/intl/en/'
-  version '2013'
-  sha256 '0a335e432eabafeaeed000c5471a0818fd5e92e65db4e3e145f99ea261a41844'
-  link 'SketchUp 2013'
+cask 'sketchup' do
+  version :latest
+  sha256 :no_check
+
+  # downloads can be found at https://www.sketchup.com/download/all
+  # dl.trimble.com/sketchup was verified as official when first introduced to the cask
+  url 'https://dl.trimble.com/sketchup/SketchUpMake-en.dmg'
+  name 'SketchUp'
+  homepage 'https://www.sketchup.com/'
+  license :gratis
+
+  suite 'SketchUp 2016'
+
+  zap delete: [
+                '~/Library/Application Support/SketchUp 2016',
+                '~/Library/Caches/com.sketchup.SketchUp.2016',
+              ]
 end

@@ -1,7 +1,12 @@
-class IstatMenus < Cask
-  url 'http://s3.amazonaws.com/bjango/files/istatmenus4/istatmenus4.21.zip'
-  homepage 'http://bjango.com/mac/istatmenus/'
-  version '4.21'
-  sha256 'c0747dad57116f538d06c24bddbc962bd33f05320339f8884ac3f0e0cf04757a'
-  link 'iStat Menus.app'
+cask 'istat-menus' do
+  version '5.20'
+  sha256 :no_check # required as upstream package is updated in-place
+
+  # amazonaws.com/bjango was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/bjango/files/istatmenus5/istatmenus#{version}.zip"
+  name 'iStats Menus'
+  homepage 'https://bjango.com/mac/istatmenus/'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'iStat Menus.app'
 end

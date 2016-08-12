@@ -1,7 +1,11 @@
-class Focuswriter < Cask
-  url 'http://gottcode.org/focuswriter/download/?os=mac'
-  homepage 'http://gottcode.org/focuswriter/'
-  version 'latest'
+cask 'focuswriter' do
+  version :latest
   sha256 :no_check
-  link 'FocusWriter.app'
+
+  url 'http://gottcode.org/focuswriter/download/?os=mac'
+  name 'FocusWriter'
+  homepage 'https://gottcode.org/focuswriter/'
+  license :gpl
+
+  app 'FocusWriter.app'
 end

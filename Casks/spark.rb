@@ -1,7 +1,13 @@
-class Spark < Cask
-  url 'http://www.shadowlab.org/softwares/Spark/Spark.dmg'
-  homepage 'http://www.shadowlab.org/softwares/spark.php'
-  version 'latest'
+cask 'spark' do
+  version :latest
   sha256 :no_check
-  link 'Spark.app'
+
+  url 'https://www.shadowlab.org/softwares/Spark/Spark.zip'
+  name 'Spark'
+  homepage 'https://www.shadowlab.org/softwares/spark.php'
+  license :mit
+
+  app 'Spark.app'
+
+  zap delete: '~/Library/Application Support/Spark'
 end

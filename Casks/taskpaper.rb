@@ -1,8 +1,11 @@
-class Taskpaper < Cask
-  url 'http://taskpaper.s3.amazonaws.com/TaskPaper.dmg'
-  appcast 'http://www.hogbaysoftware.com/products/taskpaper/releases.rss'
-  homepage 'http://www.hogbaysoftware.com/products/taskpaper'
-  version 'latest'
+cask 'taskpaper' do
+  version :latest
   sha256 :no_check
-  link 'TaskPaper.app'
+
+  url 'https://www.taskpaper.com/assets/app/TaskPaper.dmg'
+  name 'TaskPaper'
+  homepage 'https://www.taskpaper.com/'
+  license :commercial
+
+  app 'TaskPaper.app'
 end

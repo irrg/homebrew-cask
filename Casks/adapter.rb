@@ -1,7 +1,15 @@
-class Adapter < Cask
-  url 'http://downloads.macroplant.com/Adapter-2.1.1.dmg'
-  homepage 'http://www.macroplant.com/adapter/'
-  version '2.1.1'
-  sha256 'e46706c1b64acc2cd927456ba03be5220c2bc406c4eacab6fdd28490fb452a94'
-  link 'Adapter.app'
+cask 'adapter' do
+  version '2.1.6'
+  sha256 'ef2de9f0795cd446d26a4de1180b2580402abe8e5f13368e42d8da39eadde729'
+
+  url "http://downloads.macroplant.com/Adapter-#{version}.dmg"
+  appcast 'https://www.macroplant.com/adapter/adapterAppcast.xml',
+          checkpoint: '17c8a441ce835c97f66dbd51dcbad221699360e42808091682ebfec5aed14edc'
+  name 'Adapter'
+  homepage 'https://www.macroplant.com/adapter/'
+  license :gratis
+
+  depends_on macos: '>= :snow_leopard'
+
+  app 'Adapter.app'
 end

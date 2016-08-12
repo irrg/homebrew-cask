@@ -1,10 +1,18 @@
-class Hear < Cask
-  url 'http://s3.amazonaws.com/prosoft-engineering/hear/Hear_1.1.6.dmg'
-  homepage 'http://www.prosofteng.com/products/hear.php'
-  version '1.1.6'
-  sha256 'e7b5e5782020be407f456e59167770b07afc97afb0f1f7e9d226c00c524b106b'
-  link 'Hear.app'
+cask 'hear' do
+  version '1.3.1'
+  sha256 '2711fbc44e318db8647afdb3f81f0d117946ecbe5e4d39b81732e1518dcfdcd8'
+
+  url "https://downloads.prosofteng.com/hear/Hear_#{version}.dmg"
+  appcast 'https://www.prosofteng.com/resources/sparkle/sparkle.php?psProduct=Hear',
+          checkpoint: 'fda2626909b97d07dd5ff26d881b7df42ebf51fcf112d29437819b42c62a56c3'
+  name 'Hear'
+  homepage 'https://www.prosofteng.com/hear/'
+  license :commercial
+
+  app 'Hear.app'
+
+  # TODO: an uninstall stanza should be provided, and this message removed
   caveats <<-EOS.undent
-    To uninstall open Hear.app and go to the menu Hear > Uninstall...
+    To uninstall, open Hear.app and choose the menu item "Hear > Uninstall"
   EOS
 end

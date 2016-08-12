@@ -1,7 +1,11 @@
-class Izip < Cask
-  url 'http://www.izip.com/izip.dmg'
-  homepage 'http://www.izip.com'
-  version 'latest'
+cask 'izip' do
+  version :latest
   sha256 :no_check
-  link 'iZip.app'
+
+  url 'http://www.izip.com/izip.dmg'
+  name 'iZip'
+  homepage 'http://www.izip.com'
+  license :gratis
+
+  app 'iZip.app'
 end

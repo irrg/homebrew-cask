@@ -1,7 +1,11 @@
-class Rescuetime < Cask
-  url 'https://www.rescuetime.com/installers/RescueTimeInstaller.dmg'
-  homepage 'https://www.rescuetime.com'
-  version 'latest'
+cask 'rescuetime' do
+  version :latest
   sha256 :no_check
-  link 'RescueTime.app'
+
+  url 'https://www.rescuetime.com/installers/RescueTimeInstaller.dmg'
+  name 'RescueTime'
+  homepage 'https://www.rescuetime.com'
+  license :gratis
+
+  app 'RescueTime.app'
 end

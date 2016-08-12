@@ -1,8 +1,13 @@
-class IntelXdk < Cask
-  url 'http://d2bnc8freht07j.cloudfront.net/xdk_web_mac_master_0769.dmg'
+cask 'intel-xdk' do
+  version '2170'
+  sha256 'f10e883140921ef3f9f9231b58fb7d1b1b092728bc68fd13e1fda4a209a57145'
+
+  url "https://download.xdk.intel.com/xdk/xdk_web_mac_master_#{version}.dmg"
+  name 'Intel XDK'
   homepage 'http://xdk-software.intel.com/'
-  version '0769'
-  sha256 '365a1850ccbf52fb3f1946bb569c454ccd6ea1a72d43074a9e92d9a646881489'
-  install 'xdk_full_0769.pkg'
-  uninstall :pkgutil => 'com.intel.pkg.xdk_new'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  pkg "xdk_full_#{version}.pkg"
+
+  uninstall pkgutil: 'com.intel.pkg.xdk_new'
 end

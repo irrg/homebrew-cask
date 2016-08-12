@@ -1,7 +1,11 @@
-class GooglePlusAutoBackup < Cask
-  url 'https://dl.google.com/dl/edgedl/picasa/gpautobackup_setup.dmg'
-  homepage 'http://picasa.google.com/'
-  version 'latest'
+cask 'google-plus-auto-backup' do
+  version :latest
   sha256 :no_check
-  link 'Google+ Auto Backup.app'
+
+  url 'https://dl.google.com/dl/edgedl/picasa/gpautobackup_setup.dmg'
+  name 'Google+ Auto Backup'
+  homepage 'https://picasa.google.com/'
+  license :gratis
+
+  app 'Google+ Auto Backup.app'
 end

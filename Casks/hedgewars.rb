@@ -1,7 +1,14 @@
-class Hedgewars < Cask
-  url 'http://download.gna.org/hedgewars/Hedgewars-0.9.20-3.dmg'
-  homepage 'http://hedgewars.org'
-  version '0.9.20'
-  sha256 '167667f32f4798733b7bfd50423493067e6a9fd19f02f45e737b324038f0d559'
-  link 'Hedgewars.app'
+cask 'hedgewars' do
+  version '0.9.22'
+  sha256 'adc0b6dd3b47de115e85db1cb72841836444c0ebc77caee8139bfd6561e28fe8'
+
+  # download.gna.org/hedgewars was verified as official when first introduced to the cask
+  url "http://download.gna.org/hedgewars/Hedgewars-#{version}.dmg"
+  appcast 'https://www.hedgewars.org/download/appcast.xml',
+          checkpoint: 'b568efa383a1243786b557c0d85dc0b3612afebcd310c77d91b5ec3c288a3264'
+  name 'Hedgewars'
+  homepage 'https://hedgewars.org/'
+  license :gpl
+
+  app 'Hedgewars.app'
 end

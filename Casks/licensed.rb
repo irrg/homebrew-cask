@@ -1,7 +1,11 @@
-class Licensed < Cask
-  url 'http://amarsagoo.info/licensed/Licensed.dmg'
-  homepage 'http://amarsagoo.info/licensed'
-  version 'latest'
+cask 'licensed' do
+  version :latest
   sha256 :no_check
-  link 'Licensed.app'
+
+  url 'http://amarsagoo.info/licensed/Licensed.dmg'
+  name 'Licensed'
+  homepage 'http://amarsagoo.info/licensed'
+  license :gratis
+
+  app 'Licensed.app'
 end

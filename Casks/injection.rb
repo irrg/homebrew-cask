@@ -1,10 +1,17 @@
-class Injection < Cask
-  url 'http://injectionforxcode.johnholdsworth.com/InjectionPluginV5.1.pkg'
+cask 'injection' do
+  version '6.4'
+  sha256 'a015934d2223345796757ceeb8bd8c1d21b8f63ed9fbd27b36ffe7e5a82b0933'
+
+  # injectionforxcode.johnholdsworth.com was verified as official when first introduced to the cask
+  url "http://injectionforxcode.johnholdsworth.com/InjectionPluginV#{version}.pkg"
+  name 'Injection for Xcode'
   homepage 'http://injectionforxcode.com/'
-  version '5.1'
-  sha256 'c5e6dbaca14e3b9ee7e084d6787047cc61345ec38c2614b7c8016525ef18de9c'
-  install 'InjectionPluginV5.1.pkg'
-  uninstall :pkgutil => 'com.injectionforxcode.injectionPluginForXcode.InjectionPlugin.pkg',
-            :quit => 'com.johnholdsworth.InjectionPluginIII',
-            :files => '/Users/beng/Library/Application Support/Developer/Shared/Xcode/Plug-ins/InjectionPlugin.xcplugin'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  pkg "InjectionPluginV#{version}.pkg"
+
+  uninstall pkgutil: 'com.injectionforxcode.injectionPluginForXcode.InjectionPlugin.pkg',
+            quit:    'com.johnholdsworth.InjectionPluginIII'
+
+  zap       delete: '~/Library/Application Support/Developer/Shared/Xcode/Plug-ins/InjectionPlugin.xcplugin'
 end

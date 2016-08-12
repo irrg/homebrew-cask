@@ -1,7 +1,12 @@
-class PinegrowWebDesigner < Cask
-  url 'http://pinegrow.s3.amazonaws.com/PinegrowMac.zip'
+cask 'pinegrow-web-designer' do
+  version '2.81'
+  sha256 '76d14cc1947d97cfb58f9879956ffc8ee04582fbdff3131a6b11f4dabe7c2e25'
+
+  # pinegrow.s3.amazonaws.com was verified as official when first introduced to the cask
+  url "https://pinegrow.s3.amazonaws.com/PinegrowMac.#{version}.dmg"
+  name 'Pinegrow Web Designer'
   homepage 'http://pinegrow.com/'
-  version 'latest'
-  sha256 :no_check
-  link 'Pinegrow Web Designer.app'
+  license :commercial
+
+  app 'Pinegrow Web Designer.app'
 end

@@ -1,7 +1,17 @@
-class Keymo < Cask
-  url 'http://manytricks.com/download/_do_not_hotlink_/keymo120.dmg'
-  homepage 'http://manytricks.com/keymo'
-  version '1.2.0'
-  sha256 '29dffdc3409c998ae8971f45c8bf1257b2e4eed6e602f1db2b17be4f06ba16a5'
-  link 'Keymo.app'
+cask 'keymo' do
+  version '1.2.5'
+  sha256 '7eb685ae806e0bcf251cf74d18890ef07d75dc31bc92323ff66efdf8b56476a0'
+
+  url 'https://manytricks.com/download/keymo'
+  appcast 'https://manytricks.com/keymo/appcast.xml',
+          checkpoint: '382c704be6dbdc0bbeff5b01a661c227a9beabc487363bea91d63cf55ec0f8c7'
+  name 'Keymo'
+  homepage 'https://manytricks.com/keymo'
+  license :commercial
+
+  auto_updates true
+
+  app 'Keymo.app'
+
+  zap delete: '~/Library/Preferences/com.manytricks.Keymo.plist'
 end

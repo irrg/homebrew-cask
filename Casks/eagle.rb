@@ -1,9 +1,15 @@
-class Eagle < Cask
-  url 'ftp://ftp.cadsoft.de/eagle/program/6.5/eagle-mac-6.5.0.zip'
-  homepage 'http://www.cadsoftusa.com/'
-  version '6.5.0'
-  sha256 '902e6f8ebdf0991a7b26a997e66540bf1e2b984b82a683be97fa469b95d35239'
-  install 'eagle-6.5.0.pkg'
-  uninstall :pkgutil => 'com.CadSoftComputerGmbH.EAGLE',
-            :files => '/Applications/EAGLE-6.5.0'
+cask 'eagle' do
+  version '7.6.0'
+  sha256 'e4ee203fcb7deb4f8ce992df614b246f6c4332bba42dbefd5da8d2410427a7de'
+
+  # cadsoft.de was verified as official when first introduced to the cask
+  url "http://web.cadsoft.de/ftp/eagle/program/#{version.sub(%r{\.\d+$}, '')}/eagle-mac64-#{version}.zip"
+  name 'CadSoft EAGLE'
+  homepage 'https://www.cadsoftusa.com/'
+  license :freemium
+
+  pkg "eagle-mac64-#{version}.pkg"
+
+  uninstall pkgutil: 'com.CadSoftComputerGmbH.EAGLE',
+            delete:  "/Applications/EAGLE-#{version}"
 end

@@ -1,22 +1,21 @@
-class Macvim < Cask
-  if MacOS.version == :mavericks
-    url 'https://github.com/b4winckler/macvim/releases/download/snapshot-73/MacVim-snapshot-73-Mavericks.tbz'
-    sha256 '557c60f3487ab68426cf982c86270f2adfd15e8a4d535f762e6d55602754d224'
-  else
-    url 'https://github.com/eee19/macvim/releases/download/snapshot-73/MacVim-snapshot-73-Mountain-Lion.tbz'
-    sha256 '7f573fb9693052a86845c0a9cbb0b3c3c33ee23294f9d8111187377e4d89f72c'
-  end
-  homepage 'http://code.google.com/p/macvim/'
-  version '7.4-73'
-  link 'MacVim-snapshot-73/MacVim.app'
-  binary 'MacVim-snapshot-73/mvim'
-  caveats do
-    puts <<-EOS.undent
-    Note that homebrew also provides a compiled macvim Formula that links its
-    binary to /usr/local/bin/mvim. It's not recommended to install both the
-    Cask and the Formula of MacVim.
+cask 'macvim' do
+  version '7.4.104'
+  sha256 '85653caf0c39eceb326e5c8ef11a8df522a05c4f2bfb3263cdcbf1bc938148c4'
 
-    EOS
-    files_in_usr_local
-  end
+  url "https://github.com/macvim-dev/macvim/releases/download/snapshot-#{version.patch}/MacVim.dmg"
+  appcast 'https://github.com/macvim-dev/macvim/releases.atom',
+          checkpoint: '98effae6e9752c822d87a8cf1e744e88daee1bd13e9ac35d10e752009a8fbc9c'
+  name 'MacVim'
+  homepage 'https://github.com/macvim-dev/macvim'
+  license :oss
+
+  conflicts_with formula: 'macvim'
+
+  app 'MacVim.app'
+  binary 'mvim'
+
+  zap delete: [
+                '~/Library/Preferences/org.vim.MacVim.LSSharedFileList.plist',
+                '~/Library/Preferences/org.vim.MacVim.plist',
+              ]
 end

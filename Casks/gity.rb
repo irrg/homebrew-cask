@@ -1,7 +1,11 @@
-class Gity < Cask
-  url 'http://gityapp.com/Gity.zip'
-  homepage 'http://gityapp.com/'
-  version 'latest'
+cask 'gity' do
+  version :latest
   sha256 :no_check
-  link 'Gity.app'
+
+  url 'http://gityapp.com/gityapp/Gity.zip'
+  name 'Gity'
+  homepage 'http://gityapp.com/gityapp/'
+  license :gpl
+
+  app 'Gity.app'
 end

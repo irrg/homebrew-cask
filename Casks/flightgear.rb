@@ -1,7 +1,14 @@
-class Flightgear < Cask
-  url 'http://ftp.snt.utwente.nl/pub/software/flightgear/ftp/MacOSX/FlightGear-3.0.0.dmg'
+cask 'flightgear' do
+  version '2016.2.1'
+  sha256 '86e0bdbe06a7e9660380060fc3e48f3e2d1ee5cf838af3573805db2560a5c720'
+
+  # sourceforge.net/flightgear was verified as official when first introduced to the cask
+  url "https://downloads.sourceforge.net/flightgear/FlightGear-#{version}.dmg"
+  appcast 'https://sourceforge.net/projects/flightgear/rss',
+          checkpoint: '924d166598e1d9b00b8ea57fe8c05aceb389f1612ac22f08b68296dada6050ed'
+  name 'FlightGear'
   homepage 'http://www.flightgear.org/'
-  version '3.0.0'
-  sha256 'b0e64a2cf0c084c3a2eb0cb04d6d684667b13b6994c5a366d2ecdc7b13368887'
-  link 'FlightGear.app'
+  license :gpl
+
+  app 'FlightGear.app'
 end

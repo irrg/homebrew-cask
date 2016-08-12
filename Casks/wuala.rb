@@ -1,7 +1,11 @@
-class Wuala < Cask
-  url 'https://cdn.wuala.com/files/WualaInstaller.dmg'
-  homepage 'http://wuala.com'
-  version 'latest'
+cask 'wuala' do
+  version :latest
   sha256 :no_check
-  link 'Wuala.app'
+
+  url 'https://cdn.wuala.com/files/WualaInstaller.dmg'
+  name 'Wuala'
+  homepage 'https://www.wuala.com/'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'Wuala.app'
 end

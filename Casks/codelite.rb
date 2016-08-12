@@ -1,7 +1,18 @@
-class Codelite < Cask
-  url 'http://downloads.codelite.org/downloads.php?osx'
-  homepage 'http://codelite.org'
-  version 'latest'
+cask 'codelite' do
+  version :latest
   sha256 :no_check
-  link 'codelite.app'
+
+  url 'http://downloads.codelite.org/downloads.php?osx'
+  name 'CodeLite'
+  homepage 'http://codelite.org'
+  license :gpl
+
+  depends_on macos: '>= :mountain_lion'
+
+  app 'codelite.app'
+
+  zap delete: [
+                '~/Library/Application Support/codelite',
+                '~/Library/Preferences/codelite.plist',
+              ]
 end

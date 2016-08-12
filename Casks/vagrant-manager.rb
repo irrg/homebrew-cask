@@ -1,7 +1,14 @@
-class VagrantManager < Cask
-  url 'https://github.com/lanayotech/vagrant-manager/releases/download/1.5.2/vagrant-manager-1.5.2.dmg'
+cask 'vagrant-manager' do
+  version '2.5.4'
+  sha256 '9ad9d9f5d6eca2ef0f4493004f06acc6862701b1b731fe20ddbc7c5970079824'
+
+  # github.com/lanayotech/vagrant-manager was verified as official when first introduced to the cask
+  url "https://github.com/lanayotech/vagrant-manager/releases/download/#{version}/vagrant-manager-#{version}.dmg"
+  appcast 'https://github.com/lanayotech/vagrant-manager/releases.atom',
+          checkpoint: '0d60d80f827a3ed3b2e1eed81dd899deb5a26a25ea8173c8a02dd144abe4f915'
+  name 'Vagrant Manager'
   homepage 'http://vagrantmanager.com/'
-  version '1.5.2'
-  sha256 '8b694afb8774e83088d317e18e679199ddb17bace499d519ba81d6ef4c7d7be3'
-  link 'Vagrant Manager.app'
+  license :mit
+
+  app 'Vagrant Manager.app'
 end

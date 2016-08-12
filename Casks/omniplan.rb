@@ -1,7 +1,11 @@
-class Omniplan < Cask
-  url 'http://www.omnigroup.com/download/latest/omniplan'
-  homepage 'http://www.omnigroup.com/products/omniplan/'
-  version 'latest'
+cask 'omniplan' do
+  version :latest
   sha256 :no_check
-  link 'OmniPlan.app'
+
+  url 'https://www.omnigroup.com/download/latest/omniplan'
+  name 'OmniPlan'
+  homepage 'https://www.omnigroup.com/omniplan/'
+  license :commercial
+
+  app 'OmniPlan.app'
 end

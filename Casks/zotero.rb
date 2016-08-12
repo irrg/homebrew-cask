@@ -1,7 +1,11 @@
-class Zotero < Cask
-  url 'http://download.zotero.org/standalone/4.0.20/Zotero-4.0.20.dmg'
-  homepage 'http://www.zotero.org/'
-  version '4.0.20'
-  sha256 '5206accbc9324a5ca42d660dd1c74ca3bac2397ffa0d503819b4245820feea27'
-  link 'Zotero.app'
+cask 'zotero' do
+  version '4.0.29.5'
+  sha256 '137766cf43c645f424f93c7a61f7c0cc163cb583002ffa45c8e00cacec175301'
+
+  url "https://download.zotero.org/standalone/#{version}/Zotero-#{version}.dmg"
+  name 'Zotero'
+  homepage 'https://www.zotero.org/'
+  license :affero
+
+  app 'Zotero.app'
 end

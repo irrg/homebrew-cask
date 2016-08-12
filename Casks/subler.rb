@@ -1,7 +1,23 @@
-class Subler < Cask
-  url 'https://subler.googlecode.com/files/Subler-0.25.zip'
-  homepage 'https://code.google.com/p/subler/'
-  version '0.25'
-  sha256 '7b93d8a6afc1db00ea86b3bb2f6f8927012e66f1d74d7bfc7293d87cc8565f86'
-  link 'Subler.app'
+cask 'subler' do
+  version '1.1.1'
+  sha256 '8f96512cacf3f99d17697201d43f53efd387f01a15e09d7798e6f0fdc062772d'
+
+  # bitbucket.org/galad87/subler was verified as official when first introduced to the cask
+  url "https://bitbucket.org/galad87/subler/downloads/Subler-#{version}.zip"
+  appcast 'https://subler.org/appcast/appcast.xml',
+          checkpoint: 'a48a3b2a60d5baebde8a06045b79bf317c41b3796f607549b510222f4df013bb'
+  name 'Subler'
+  homepage 'https://subler.org/'
+  license :gpl
+
+  auto_updates true
+
+  app 'Subler.app'
+
+  zap delete: [
+                '~/Library/Preferences/org.galad.Subler.plist',
+                '~/Library/Application Support/Subler',
+                '~/Library/Caches/org.galad.Subler',
+                '~/Library/Saved Application State/org.galad.Subler.savedState',
+              ]
 end

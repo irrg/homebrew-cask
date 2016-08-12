@@ -1,7 +1,13 @@
-class Shiori < Cask
-  url 'http://aki-null.net/shiori/release/Shiori_1.0.1.zip'
-  homepage 'http://aki-null.net/shiori/'
-  version '1.0.1'
-  sha256 'e6ca6cbd9502de280303cb46deade6a6b938da7bae3ecd99bf7b23c539747c26'
-  link 'Shiori.app'
+cask 'shiori' do
+  version '1.0.2'
+  sha256 'c832edc2762fdaadc80bfe042ee6f7bd128955e3d7b27bdc5baf5806a0c8a719'
+
+  url "https://aki-null.net/shiori/release/Shiori_#{version}.zip"
+  appcast 'https://aki-null.net/shiori/appcast.xml',
+          checkpoint: 'b69c3dfa9d53455a156b3db08474ebc53dfb7478f6a4792d7bc1f4b4531fcd85'
+  name 'Shiori'
+  homepage 'https://aki-null.net/shiori/'
+  license :gratis
+
+  app 'Shiori.app'
 end

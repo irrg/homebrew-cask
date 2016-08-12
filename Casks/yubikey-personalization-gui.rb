@@ -1,7 +1,13 @@
-class YubikeyPersonalizationGui < Cask
-  url 'http://www.yubico.com/wp-content/uploads/2012/09/yubikey-personalization-gui-3.1.14.pkg'
-  homepage 'http://www.yubico.com/products/services-software/personalization-tools/use/'
-  version '3.1.14'
-  sha256 'f0c3d016b90f54e69525d2fec4dee89df499862e4a8a1ad3323e0fca57287408'
-  install 'yubikey-personalization-gui-3.1.14.pkg'
+cask 'yubikey-personalization-gui' do
+  version '3.1.24'
+  sha256 'bb13aeb006ca40fc1b16360250daa9ee08f85248cce7d4f21335f2ce6a7a3248'
+
+  url "https://developers.yubico.com/yubikey-personalization-gui/Releases/yubikey-personalization-gui-#{version}.pkg"
+  name 'YubiKey Personalization GUI'
+  homepage 'https://www.yubico.com/products/services-software/personalization-tools/use/'
+  license :bsd
+
+  pkg "yubikey-personalization-gui-#{version}.pkg"
+
+  uninstall pkgutil: 'com.yubico.YKPersonalization'
 end

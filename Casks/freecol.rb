@@ -1,7 +1,14 @@
-class Freecol < Cask
-  url 'http://downloads.sourceforge.net/sourceforge/freecol/freecol-0.10.7-mac.tar.bz2'
+cask 'freecol' do
+  version '0.11.3'
+  sha256 'bf3dffc26689470f8a9c6fdccd079603ce86c4ed4360042db199b57e658e2de4'
+
+  # sourceforge.net/freecol was verified as official when first introduced to the cask
+  url "https://downloads.sourceforge.net/freecol/freecol-#{version}-mac.tar.bz2"
+  appcast 'https://sourceforge.net/projects/freecol/rss',
+          checkpoint: 'e03a560793701ff27f4229fca8348440c0a8c9d45caf6b8199f359edffb88f45'
+  name 'FreeCol'
   homepage 'http://freecol.org'
-  version '0.10.7'
-  sha256 'eb05ea179df6adc6bcf4234ce3809c48b8c2d5597da20a10910ded677f2b6a2d'
-  link 'FreeCol.app'
+  license :gpl
+
+  app 'FreeCol.app'
 end

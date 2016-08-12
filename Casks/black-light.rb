@@ -1,7 +1,11 @@
-class BlackLight < Cask
-  url 'http://littoral.michelf.ca/apps/black-light/black-light-2.0.zip'
-  homepage 'http://michelf.ca/projects/black-light'
-  version '2.0'
-  sha256 '9c9b77636c541089ad4828b33e571ac4134ee7e3a22fa87adc2c25e633c76fec'
-  link 'Black Light.app'
+cask 'black-light' do
+  version '2.1'
+  sha256 '008861531d4d52b3b0721095f7c6edf50d2b0a3232e2d045360f474ca7841834'
+
+  url "https://littoral.michelf.ca/apps/black-light/black-light-#{version}.zip"
+  name 'Black Light'
+  homepage 'https://michelf.ca/projects/black-light'
+  license :commercial
+
+  app 'Black Light.app'
 end

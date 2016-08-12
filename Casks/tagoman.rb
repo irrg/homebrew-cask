@@ -1,7 +1,14 @@
-class Tagoman < Cask
+cask 'tagoman' do
+  version '1.0'
+  sha256 'a9cff4b2b948d668ed4594d72d3616fcda96d1faa7038165440aaa523208f924'
+
+  # dropboxusercontent.com/u/7614970 was verified as official when first introduced to the cask
   url 'https://dl.dropboxusercontent.com/u/7614970/TagoMan.zip'
-  homepage 'http://onflapp.wordpress.com/tagoman'
-  version '0.6.1-BETA'
-  sha256 '75c1525272ef37b426928e28e2e16ebe3ca9a9c4615d739de0727d16a9939718'
-  link 'TagoMan.app'
+  appcast 'https://onflapp.appspot.com/tagoman',
+          checkpoint: '98ec87defcd27b48c9a6e851ec6160f66feaac0e90d32259dd6506d7e9a580a7'
+  name 'TagoMan'
+  homepage 'https://onflapp.wordpress.com/tagoman/'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'TagoMan.app'
 end

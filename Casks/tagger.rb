@@ -1,7 +1,14 @@
-class Tagger < Cask
-  url 'https://github.com/downloads/Bilalh/Tagger/Tagger_1.6.2.zip'
-  homepage 'http://bilalh.github.io/projects/tagger/'
-  version '1.6.2'
-  sha256 'b0c23f7068509f36648da4e3db809064fe53d44cd6d097f6b5f4f81f8fe39b33'
-  link 'Tagger.app'
+cask 'tagger' do
+  version '1.8.0.7'
+  sha256 'a4745dcf88f1691d2c681a87e6cfb6326200b6a2d9dfb53c2c62c67905a09e16'
+
+  # github.com/Bilalh/Tagger was verified as official when first introduced to the cask
+  url "https://github.com/Bilalh/Tagger/releases/download/1.8.0/Tagger_#{version}.zip"
+  appcast 'https://github.com/Bilalh/Tagger/releases.atom',
+          checkpoint: 'bec52aec35f7c2d84da353a17220a2c9830a1c4e54c00e995b38812004c522f1'
+  name 'Tagger'
+  homepage 'https://bilalh.github.io/projects/tagger/'
+  license :cc
+
+  app 'Tagger.app'
 end

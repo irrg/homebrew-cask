@@ -1,7 +1,13 @@
-class Meocloud < Cask
-  url 'https://meocloud.pt/binaries/osx/MEOCloud-0.1.115.dmg'
+cask 'meocloud' do
+  version '0.2.29'
+  sha256 '909dfe26800c3ecbd424af4cbe8bb37670a057b6a75b05a24b4c86b210d2ef56'
+
+  url "https://meocloud.pt/binaries/osx/MEOCloud-#{version}.dmg"
+  appcast 'https://services.sapo.pt/Application/Catalog/Update?appid=pt.sapo.mac.cloudpt',
+          checkpoint: '45f857300ca0ad4c5730a7f29fa3b44f1709f8b529388d8ec435a843eb3d5da7'
+  name 'MEO Cloud'
   homepage 'https://meocloud.pt'
-  version '0.1.115'
-  sha256 '7ec0658eed5e77730275bf97e196ac3fea5ed4946e9632c0ae8458d8093768b1'
-  link 'MEOCloud.app'
+  license :gratis
+
+  app 'MEOCloud.app'
 end

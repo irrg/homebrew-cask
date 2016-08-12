@@ -1,7 +1,11 @@
-class Camranger < Cask
-  url 'http://www.camranger.com/downloadFiles/CamRanger_1_7.zip'
-  homepage 'http://www.camranger.com/downloads/#fbox_5594'
-  version '1.7'
-  sha256 '1b00c6315a3bd7766f8cc3855a06853be83e355e34d4fdb80c69e88571bbaef8'
-  link '1.7/CamRanger.app'
+cask 'camranger' do
+  version '1.8.7'
+  sha256 'da68eeb0a19edf5a1658aee119ca37443dbe9af5d39c45f5fa34c3956fcdf29b'
+
+  url "http://www.camranger.com/downloadFiles/CamRanger_#{version.dots_to_underscores}.dmg"
+  name 'CamRanger'
+  homepage 'https://camranger.com/mac-downloads'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'CamRanger.app'
 end

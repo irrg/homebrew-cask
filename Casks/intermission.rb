@@ -1,7 +1,11 @@
-class Intermission < Cask
-  url 'http://dm.rogueamoeba.com/mirror/files/Intermission.zip'
-  homepage 'http://rogueamoeba.com/intermission/'
-  version 'latest'
+cask 'intermission' do
+  version :latest
   sha256 :no_check
-  link 'Intermission.app'
+
+  url 'http://dm.rogueamoeba.com/mirror/files/Intermission.zip'
+  name 'Intermission'
+  homepage 'https://rogueamoeba.com/intermission/'
+  license :commercial
+
+  app 'Intermission.app'
 end

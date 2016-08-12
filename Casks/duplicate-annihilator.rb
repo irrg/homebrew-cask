@@ -1,8 +1,11 @@
-class DuplicateAnnihilator < Cask
-  url 'http://brattoo.com/propaganda/downloadDa.php'
-  homepage 'http://brattoo.com/propaganda/'
-  version 'latest'
+cask 'duplicate-annihilator' do
+  version :latest
   sha256 :no_check
-  nested_container 'Duplicate Annihilator.dmg'
-  link 'Duplicate Annihilator.app'
+
+  url 'https://brattoo.com/propaganda/downloadDa.php'
+  name 'Duplicate Annihilator'
+  homepage 'https://brattoo.com/propaganda/'
+  license :commercial
+
+  app 'Duplicate Annihilator.app'
 end

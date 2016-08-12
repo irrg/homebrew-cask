@@ -1,7 +1,11 @@
-class Mover < Cask
-  url 'http://www.themaninhat.com/static/mover.dmg'
-  homepage 'http://www.themaninhat.com/mover.html'
-  version 'latest'
+cask 'mover' do
+  version :latest
   sha256 :no_check
-  link 'Mover.app'
+
+  url 'http://www.themaninhat.com/static/mover.dmg'
+  name 'Mover'
+  homepage 'http://www.themaninhat.com/mover.html'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'Mover.app'
 end

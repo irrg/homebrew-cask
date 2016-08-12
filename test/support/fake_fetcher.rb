@@ -1,13 +1,11 @@
-class Cask::FakeFetcher
+class Hbc::FakeFetcher
   def self.fake_response_for(url, response)
     @responses[url] = response
   end
 
   def self.head(url)
     @responses ||= {}
-    unless @responses.key?(url)
-      fail("no response faked for #{url.inspect}")
-    end
+    raise("no response faked for #{url.inspect}") unless @responses.key?(url)
     @responses[url]
   end
 
@@ -23,12 +21,12 @@ end
 module FakeFetcherHooks
   def before_setup
     super
-    Cask::FakeFetcher.init
+    Hbc::FakeFetcher.init
   end
 
   def after_teardown
     super
-    Cask::FakeFetcher.clear
+    Hbc::FakeFetcher.clear
   end
 end
 

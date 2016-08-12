@@ -1,7 +1,22 @@
-class Mplayerx < Cask
-  url 'https://downloads.sourceforge.net/project/mplayerx-osx/MPlayerX-1.0.22.zip'
+cask 'mplayerx' do
+  version '1.1.3-1913'
+  sha256 'd48abb4b42ecbde2ba99b6afcb0ae14cf3d5a160b758eeb3cb9c533ebe7bda58'
+
+  # sourceforge.net/mplayerx-osx was verified as official when first introduced to the cask
+  url "https://downloads.sourceforge.net/mplayerx-osx/MPlayerX-#{version}.zip"
+  appcast 'https://raw.githubusercontent.com/niltsh/MPlayerX-Deploy/master/appcast.xml',
+          checkpoint: '7700102d2f188a738b2e3f2524a2fcbd510c25708ea58bb2e8953ef337bc7355'
+  name 'MPlayerX'
   homepage 'http://mplayerx.org/'
-  version '1.0.22'
-  sha256 '047759fdd76abee111832e62c871381804f97b29381bb4c4940e89c5b7d84fe9'
-  link 'MPlayerX.app'
+  license :oss
+
+  app 'MPlayerX.app'
+
+  zap delete: [
+                '~/.mplayer',
+                '~/Library/Application Support/MPlayerX',
+                '~/Library/Preferences/org.niltsh.MPlayerX.LSSharedFileList.plist',
+                '~/Library/Preferences/org.niltsh.MPlayerX.plist',
+                '~/Library/Caches/org.niltsh.MPlayerX',
+              ]
 end

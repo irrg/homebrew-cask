@@ -1,7 +1,14 @@
-class Actotracker < Cask
+cask 'actotracker' do
+  version '1.2'
+  sha256 '578c3d1519a6d89207364802cec18ca314b6c30ace1d3de262f3c0d152e685da'
+
+  # dropboxusercontent.com/u/7614970 was verified as official when first introduced to the cask
   url 'https://dl.dropboxusercontent.com/u/7614970/ActoTracker.zip'
-  homepage 'http://onflapp.wordpress.com/actotracker'
-  version '0.9-BETA'
-  sha256 '5ac8837e039444a46ae29d9920186e7ff14d52a4f80e7efa7eb6a5d887e3aff7'
-  link 'ActoTracker.app'
+  appcast 'https://onflapp.appspot.com/actotracker',
+          checkpoint: '8ae126c057e71688c0d6c9b24ff45a56d97c62251dddd433d99bb724ddcb5492'
+  name 'ActoTracker'
+  homepage 'https://onflapp.wordpress.com/actotracker/'
+  license :gratis
+
+  app 'ActoTracker.app'
 end

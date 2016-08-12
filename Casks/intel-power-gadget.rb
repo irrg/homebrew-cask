@@ -1,11 +1,13 @@
-# encoding: UTF-8
-class IntelPowerGadget < Cask
-  url 'http://software.intel.com/sites/default/files/IntelPowerGadget3.0.1.zip'
-  homepage 'http://software.intel.com/en-us/articles/intel-power-gadget-20'
-  version '3.0.1'
-  sha256 '538a792721604e2155b3a48caa4084db751a91b170e5fa62bf0331d3147f2239'
-  # this bogus-looking character accurately reflects an upstream error
-  nested_container 'IntelÆ Power Gadget.dmg'
-  install 'Install Intel Power Gadget.pkg'
-  uninstall :pkgutil => 'com.intel.pkg.PowerGadget.*'
+cask 'intel-power-gadget' do
+  version '3.0.3'
+  sha256 '93f052f5c1306272fceab7af5740d2837656242ab879436a6ce9e573ed9a274e'
+
+  url 'https://software.intel.com/file/501089/download'
+  name 'Intel Power Gadget'
+  homepage 'https://software.intel.com/en-us/articles/intel-power-gadget-20'
+  license :gratis
+
+  pkg 'Install Intel Power Gadget.pkg'
+
+  uninstall pkgutil: 'com.intel.pkg.PowerGadget.*'
 end

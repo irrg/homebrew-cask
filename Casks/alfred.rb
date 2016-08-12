@@ -1,13 +1,29 @@
-class Alfred < Cask
-  url 'http://cachefly.alfredapp.com/Alfred_2.3_264.zip'
-  homepage 'http://www.alfredapp.com/'
-  version '2.3_264'
-  sha256 'a32565cdb1673f4071593d4cc9e1c26bc884218b62fef8abc450daa47ba8fa92'
-  link 'Alfred 2.app'
-  link 'Alfred 2.app/Contents/Preferences/Alfred Preferences.app'
+cask 'alfred' do
+  version '3.0.3_694'
+  sha256 '8edc1acba0bc559cfb76cbc5f627d7c756d1afe89d68dac16a025382c564604e'
 
-  after_install do
-    # Don't ask to move the app bundle to /Applications
-    system '/usr/bin/defaults', 'write', 'com.runningwithcrayons.alfred-2', 'suppressMoveToApplications', '-bool', 'true'
+  url "https://cachefly.alfredapp.com/Alfred_#{version}.zip"
+  name 'Alfred'
+  homepage 'https://www.alfredapp.com/'
+  license :freemium
+
+  auto_updates true
+  accessibility_access true
+
+  app "Alfred #{version.major}.app"
+
+  postflight do
+    suppress_move_to_applications key: 'suppressMoveToApplications'
   end
+
+  uninstall quit:       'com.runningwithcrayons.Alfred-3',
+            login_item: 'Alfred 3'
+
+  zap delete: [
+                '~/Library/Application Support/Alfred 3',
+                '~/Library/Caches/com.runningwithcrayons.Alfred-3',
+                '~/Library/Preferences/com.runningwithcrayons.Alfred-3.plist',
+                '~/Library/Preferences/com.runningwithcrayons.Alfred-Preferences-3.plist',
+                '~/Library/Saved Application State/com.runningwithcrayons.Alfred-Preferences-3.savedState',
+              ]
 end

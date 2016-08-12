@@ -1,7 +1,11 @@
-class Comicbookloversync < Cask
-  url 'http://www.bitcartel.com/downloads/comicbookloversync.zip'
-  homepage 'http://www.bitcartel.com/comicbooklover'
-  version 'latest'
+cask 'comicbookloversync' do
+  version :latest
   sha256 :no_check
-  link 'ComicBookLoverSync.app'
+
+  url 'https://www.bitcartel.com/downloads/comicbookloversync.zip'
+  name 'ComicBookLover Sync'
+  homepage 'https://www.bitcartel.com/comicbooklover/'
+  license :gratis
+
+  app 'ComicBookLoverSync.app'
 end

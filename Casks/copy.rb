@@ -1,7 +1,11 @@
-class Copy < Cask
-  url 'https://copy.com/install/mac/Copy.dmg'
-  homepage 'https://www.copy.com/'
-  version 'latest'
+cask 'copy' do
+  version :latest
   sha256 :no_check
-  link 'Copy.app'
+
+  url 'https://copy.com/install/mac/Copy.dmg'
+  name 'Copy'
+  homepage 'https://www.copy.com/'
+  license :gratis
+
+  app 'Copy.app'
 end

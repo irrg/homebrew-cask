@@ -1,8 +1,11 @@
-# encoding: UTF-8
-class Xee < Cask
-  url 'http://wakaba.c3.cx/releases/mac/Xee3.3.dmg'
-  homepage 'http://xee.c3.cx/'
-  version '3.3'
-  sha256 '8728d70c392b6da025a292ab62b47698c1e7f5a45b75eb797c9832b3a37d0062'
-  link 'Xee³.app'
+cask 'xee' do
+  version '3.5.2'
+  sha256 '43e22dc738f9c6d08ccea094acfe66fa0bf89fda1cc69dbf8ec6e6c6aceb63b2'
+
+  url "http://xee.c3.cx/downloads/Xee#{version}.dmg"
+  name 'Xee³'
+  homepage 'https://xee.c3.cx/'
+  license :commercial
+
+  app 'Xee³.app'
 end

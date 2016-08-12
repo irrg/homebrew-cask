@@ -1,7 +1,11 @@
-class Cocoasplit < Cask
-  url 'http://krylon.rsdio.com/zakk/cocoasplit/CocoaSplit-current.zip'
-  homepage 'http://krylon.rsdio.com/zakk/cocoasplit/'
-  version 'latest'
+cask 'cocoasplit' do
+  version :latest
   sha256 :no_check
-  link 'CocoaSplit.app'
+
+  url 'http://krylon.rsdio.com/zakk/cocoasplit/CocoaSplit-current.zip'
+  name 'CocoaSplit'
+  homepage 'http://krylon.rsdio.com/zakk/cocoasplit/'
+  license :oss
+
+  app 'CocoaSplit.app'
 end

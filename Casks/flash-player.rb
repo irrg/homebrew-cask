@@ -1,7 +1,17 @@
-class FlashPlayer < Cask
-  url 'http://fpdownload.macromedia.com/pub/flashplayer/updaters/13/flashplayer_13_sa.dmg'
+cask 'flash-player' do
+  version '22.0.0.209'
+  sha256 '791dd70fb49dadb0963317a44e410cfb3071c241711052e8db2527999d0f8eac'
+
+  # macromedia.com was verified as official when first introduced to the cask
+  url "https://fpdownload.macromedia.com/pub/flashplayer/updaters/#{version.major}/flashplayer_#{version.major}_sa.dmg"
+  name 'Adobe Flash Player'
   homepage 'https://www.adobe.com/support/flashplayer/downloads.html'
-  version '13.0.0.214'
-  sha256 'ad5042e515c6caf3dd14b6a94e5dfaa0bd2f19af7112653b31290a4682f30f72'
-  link 'Flash Player.app'
+  license :gratis
+
+  app 'Flash Player.app'
+
+  zap delete: [
+                '~/Library/Caches/Adobe/Flash Player',
+                '~/Library/Logs/FlashPlayerInstallManager.log',
+              ]
 end

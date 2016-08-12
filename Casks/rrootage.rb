@@ -1,7 +1,11 @@
-class Rrootage < Cask
-  url 'http://workram.com/archives/rRootage-for-OS-X-0.23.7.dmg'
-  homepage 'http://workram.com/games/rrootage/'
+cask 'rrootage' do
   version '0.23.7'
   sha256 '466bec698ba02a38601e9de3e98373aea08e2f35ff7341cd0df35355cc03c134'
-  link 'rRootage.app'
+
+  url "https://workram.com/downloads/rRootage-for-OS-X-#{version}.dmg"
+  name 'rRootage'
+  homepage 'https://workram.com/games/rrootage/'
+  license :bsd
+
+  app 'rRootage.app'
 end

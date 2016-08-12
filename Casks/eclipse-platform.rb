@@ -1,12 +1,14 @@
-class EclipsePlatform < Cask
-  if Hardware::CPU.is_64_bit?
-    url 'http://download.eclipse.org/eclipse/downloads/drops4/R-4.3.2-201402211700/eclipse-SDK-4.3.2-macosx-cocoa-x86_64.tar.gz'
-    sha256 '9a77cc829aa1174a98abd180a35f628d72620f2a961e21fa12d3a88e48c6ce71'
-  else
-    url 'http://download.eclipse.org/eclipse/downloads/drops4/R-4.3.2-201402211700/eclipse-SDK-4.3.2-macosx-cocoa.tar.gz'
-    sha256 '1d28a21cb106f16ce238fe947243243193adedd051b22ea528b3c7bf6e842cc0'
-  end
-  version '4.3.2'
-  homepage 'http://eclipse.org'
-  link 'eclipse/Eclipse.app'
+cask 'eclipse-platform' do
+  version '4.6-201606061100'
+  sha256 '39df3c9acfb294a7f18485bc6f1cde4a5d10a900db987a32aa510548c9a986bd'
+
+  url "http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops#{version.major}/R-#{version}/eclipse-platform-#{version.sub(%r{-.*}, '')}-macosx-cocoa-x86_64.tar.gz&r=1"
+  name 'Eclipse SDK'
+  homepage 'https://eclipse.org'
+  license :eclipse
+
+  depends_on macos: '>= :leopard'
+  depends_on arch: :x86_64
+
+  app 'Eclipse.app'
 end

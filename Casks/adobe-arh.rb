@@ -1,15 +1,18 @@
-class AdobeArh < Cask
-  url 'http://airdownload.adobe.com/air/distribution/latest/mac/arh'
-  homepage 'http://help.adobe.com/en_US/air/redist/WS485a42d56cd19641-70d979a8124ef20a34b-8000.html'
-  version 'latest'
+cask 'adobe-arh' do
+  version :latest
   sha256 :no_check
-  caskroom_only true
+
+  url 'https://airdownload.adobe.com/air/distribution/latest/mac/arh'
+  name 'Adobe AIR Redistribution Helper'
+  name 'ARH'
+  homepage 'http://help.adobe.com/en_US/air/redist/WS485a42d56cd19641-70d979a8124ef20a34b-8000.html'
+  license :gratis
+
+  container type: :naked
+
   binary 'arh'
-  container_type :naked
 
-  after_install do
-    system '/bin/chmod', '--', '755', "#{destination_path}/arh"
+  postflight do
+    set_permissions "#{staged_path}/arh", '755'
   end
-
-  caveats "Please refer to the documention at #{homepage}"
 end

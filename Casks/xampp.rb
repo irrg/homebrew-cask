@@ -1,9 +1,17 @@
-class Xampp < Cask
-  url 'http://downloads.sourceforge.net/project/xampp/XAMPP%20Mac%20OS%20X/1.8.3/xampp-osx-1.8.3-3-installer.dmg'
-  homepage 'http://www.apachefriends.org/index.html'
-  version '1.8.3.3'
-  sha256 'b54cced0697caa418851a4bdb11ee1697b3f7f71130e1e6bce19582d60e41530'
-  caveats do
-    manual_installer 'xampp-osx-1.8.3-3-installer.app'
-  end
+cask 'xampp' do
+  version '5.6.21-0'
+  sha256 '5c73ec8cd57b93ab8763b49fdfcfb061f3fc1cc3586006758a6353dd777c8ada'
+
+  # downloadsapachefriends.global.ssl.fastly.net/xampp-files was verified as official when first introduced to the cask
+  url "https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/#{version.major_minor_patch}/xampp-osx-#{version}-installer.dmg"
+  name 'XAMPP'
+  homepage 'https://www.apachefriends.org/'
+  license :gpl
+
+  installer script: 'XAMPP.app/Contents/MacOS/osx-intel',
+            args:   ['--mode', 'unattended'],
+            sudo:   true
+
+  uninstall quit:   'com.bitnami.manager',
+            delete: '/Applications/XAMPP/'
 end

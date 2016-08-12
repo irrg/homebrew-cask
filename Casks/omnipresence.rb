@@ -1,7 +1,13 @@
-class Omnipresence < Cask
-  url 'http://downloads.omnigroup.com/software/MacOSX/10.8/OmniPresence-1.1.dmg'
-  homepage 'http://www.omnigroup.com/omnipresence'
-  version '1.1'
-  sha256 '4b6304fffdeed85054379bde7b43776957b5061f0bd089f29fe3005ed19ca49f'
-  link 'OmniPresence.app'
+cask 'omnipresence' do
+  version '1.4.1'
+  sha256 '409bf272e7c4dc488f68abadb3e2ef15d4accde10f8ee9babd8b23f522bfe323'
+
+  url "https://downloads.omnigroup.com/software/MacOSX/10.10/OmniPresence-#{version}.dmg"
+  name 'OmniPresence'
+  homepage 'https://www.omnigroup.com/omnipresence'
+  license :commercial
+
+  depends_on macos: '>= :yosemite'
+
+  app 'OmniPresence.app'
 end

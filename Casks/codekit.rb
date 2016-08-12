@@ -1,7 +1,15 @@
-class Codekit < Cask
-  url 'http://incident57.com/codekit/files/codekit-16895.zip'
-  homepage 'http://incident57.com/codekit/'
-  version '2.0.3 (16895)'
-  sha256 'd98ac91e4e44c833217f55b7dcb389f5730213bb7d801188b3823f695f00b741'
-  link 'CodeKit.app'
+cask 'codekit' do
+  version '2.8-19127'
+  sha256 '0f7665ac2e750437c83c2f4f887c0e5df5b5e3d1a8a1a4ae255321f16beddf28'
+
+  url "https://incident57.com/codekit/files/codekit-#{version.sub(%r{.*-}, '')}.zip"
+  appcast 'https://incident57.com/codekit/appcast/ck2appcast.xml',
+          checkpoint: 'cfb61004b168fa9ca62a66b46c68e42f6a23b3f20b66effa1a0a5446f7240f8d'
+  name 'CodeKit'
+  homepage 'https://incident57.com/codekit/'
+  license :commercial
+
+  auto_updates true
+
+  app 'CodeKit.app'
 end

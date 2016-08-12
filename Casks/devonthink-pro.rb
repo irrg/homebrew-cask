@@ -1,8 +1,14 @@
-class DevonthinkPro < Cask
-  url 'https://s3.amazonaws.com/DTWebsiteSupport/download/devonthink/2.7.3/DEVONthink_Pro.dmg.zip'
+cask 'devonthink-pro' do
+  version '2.9.2'
+  sha256 '4ffd5ab148321e358c429667b66f49f8766c12568147fdc2f9d3ed18764494c3'
+
+  # amazonaws.com/DTWebsiteSupport was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/DTWebsiteSupport/download/devonthink/#{version}/DEVONthink_Pro.app.zip"
+  appcast 'http://www.devon-technologies.com/fileadmin/templates/filemaker/sparkle.php?product=300030707&format=xml',
+          checkpoint: 'e16f6b6e725b7a92413182cb57bd84496b411607fef21ba66cb5b98333195f7b'
+  name 'DEVONthink Pro'
   homepage 'http://www.devontechnologies.com/products/devonthink/devonthink-pro.html'
-  version '2.7.3'
-  sha256 '314b3dacbe567e8fb7314c3a62c1df7fd60bad7c66c8b63c7ea03de09ae8a0c4'
-  nested_container 'DEVONthink_Pro.dmg'
-  link 'DEVONthink Pro.app'
+  license :commercial
+
+  app 'DEVONthink Pro.app'
 end

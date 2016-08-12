@@ -1,7 +1,13 @@
-class Pester < Cask
-  url 'http://sabi.net/nriley/software/Pester-1.1b18.dmg'
-  homepage 'http://sabi.net/nriley/software/index.html#pester'
-  version '1.1b18'
-  sha256 '50cddd6fa813e5e2935e0e66ea13ee0605ada711c0141498a4d19c93eb554c86'
-  link 'Pester.app'
+cask 'pester' do
+  version '1.1b21'
+  sha256 'a1923d0b330f9e054c1c7215b35322508f03c29294660df9b73bebf6411be283'
+
+  url "https://sabi.net/nriley/software/Pester-#{version}.dmg"
+  appcast 'https://sabi.net/nriley/software/Pester/updates.xml',
+          checkpoint: '80c01b621ac7672ce1866445703e2c11532f79b1c6120aa568b33af0bce9289e'
+  name 'Pester'
+  homepage 'https://sabi.net/nriley/software/index.html#pester'
+  license :bsd
+
+  app 'Pester.app'
 end

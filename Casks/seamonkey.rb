@@ -1,7 +1,12 @@
-class Seamonkey < Cask
-  url 'https://download.mozilla.org/?product=seamonkey-2.25&os=osx&lang=en-US'
+cask 'seamonkey' do
+  version '2.40'
+  sha256 '51eb9ebc5578e81692d8c03cd2e7723f2279a4462c2afd2779b38c29bf12bd75'
+
+  # mozilla.org was verified as official when first introduced to the cask
+  url "https://download.mozilla.org/?product=seamonkey-#{version}&os=osx&lang=en-US"
+  name 'SeaMonkey'
   homepage 'http://www.seamonkey-project.org/'
-  version '2.25'
-  sha256 '3217e3d1fb94376d01ca38cc926b1b23306579c96e96adfdd50f0f66fc71c5e8'
-  link 'SeaMonkey.app'
+  license :oss
+
+  app 'SeaMonkey.app'
 end

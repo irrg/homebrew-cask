@@ -1,8 +1,14 @@
-class SplashtopPersonal < Cask
-  url 'http://d17kmd0va0f0mp.cloudfront.net/macclient/STP/Splashtop_Personal_v2.4.3.1.dmg'
+cask 'splashtop-personal' do
+  version '2.6.4.1'
+  sha256 'df738c2067e99fac4aed16ab79b0a659aa0787ac6c68e195fab4e5d1c9f02820'
+
+  # d17kmd0va0f0mp.cloudfront.net was verified as official when first introduced to the cask
+  url "https://d17kmd0va0f0mp.cloudfront.net/macclient/STP/Splashtop_Personal_v#{version}.dmg"
+  name 'Splashtop Personal'
   homepage 'http://www.splashtop.com/personal'
-  version '2.4.3.1'
-  sha256 'a0167ad134b3134e9b3e5e0a26238aed04ef230f3cabcddd7fd0fef9d82687aa'
-  install 'Splashtop Personal.pkg'
-  uninstall :pkgutil => 'com.splashtop.stp.*'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  pkg 'Splashtop Personal.pkg'
+
+  uninstall pkgutil: 'com.splashtop.stp.*'
 end

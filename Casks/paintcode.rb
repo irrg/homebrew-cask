@@ -1,7 +1,11 @@
-class Paintcode < Cask
-  url 'http://www.pixelcut.com/paintcode/paintcode.zip'
-  homepage 'http://www.paintcodeapp.com/'
-  version 'latest'
-  sha256 :no_check
-  link 'PaintCode.app'
+cask 'paintcode' do
+  version '2.4.2'
+  sha256 '8e052831ba1ea257f265ac7248d560f4872bb71fcaccb214f048c8907c319381'
+
+  url "https://www.paintcodeapp.com/content/versions/#{version}/paintcode-trial.zip"
+  name 'PaintCode'
+  homepage 'https://www.paintcodeapp.com/'
+  license :commercial
+
+  app 'PaintCode.app'
 end

@@ -1,10 +1,17 @@
-class Smartsynchronize < Cask
-  url 'http://www.syntevo.com/download/smartsynchronize/smartsynchronize-macosx-3_3_3.dmg'
-  homepage 'http://www.syntevo.com'
-  version '3.3.3'
-  sha256 '5e181292b0a54e50ad66b097eca81c4d7be42d3f001ec4a34b5a003e3cd79c96'
-  link 'SmartSynchronize 3.3.app'
-  binary 'SmartSynchronize 3.3.app/Contents/MacOS/SmartSynchronize'
+cask 'smartsynchronize' do
+  version '3.4.3'
+  sha256 'd0542f16dd665044bc2de8f1cc9316419a2590fd883a7886ee44d7ecae10930e'
+
+  url "https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-macosx-#{version.dots_to_underscores}.dmg"
+  name 'SmartSynchronize'
+  homepage 'https://www.syntevo.com/smartsynchronize/'
+  license :commercial
+
+  depends_on macos: '>= :lion'
+
+  app 'SmartSynchronize.app'
+  binary "#{appdir}/SmartSynchronize.app/Contents/MacOS/SmartSynchronize"
+
   caveats do
     files_in_usr_local
   end

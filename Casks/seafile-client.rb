@@ -1,7 +1,12 @@
-class SeafileClient < Cask
-  url 'https://bitbucket.org/haiwen/seafile/downloads/seafile-client-3.0.3.dmg'
-  homepage 'http://seafile.com/'
-  version '3.0.3'
-  sha256 '27799acfab6555a78f2c735585d192918857a60e99af84be5a2e0b2fde98cf85'
-  link 'Seafile Client.app'
+cask 'seafile-client' do
+  version '5.1.4'
+  sha256 'e3e36be4fa239f0174c00b7799c4d6aeec435212abc27f9981bb9af7d96fdb0f'
+
+  # bintray.com/artifact/download/seafile-org was verified as official when first introduced to the cask
+  url "https://bintray.com/artifact/download/seafile-org/seafile/seafile-client-#{version}.dmg"
+  name 'Seafile Client'
+  homepage 'https://seafile.com/'
+  license :gpl
+
+  app 'Seafile Client.app'
 end

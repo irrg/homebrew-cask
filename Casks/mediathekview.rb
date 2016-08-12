@@ -1,7 +1,13 @@
-class Mediathekview < Cask
-  url 'http://downloads.sourceforge.net/project/zdfmediathk/Mediathek/Mediathek%204/MediathekView_4_OSX.dmg'
-  homepage 'http://sourceforge.net/projects/zdfmediathk/'
-  version '4'
-  sha256 '41f53b86b6475fa0d8e347e9430597a975fb4f7c13eae70e82b723dace5b7c8a'
-  link 'MediathekView.app'
+cask 'mediathekview' do
+  version '11'
+  sha256 'f8a40daeefb37bd835c03674561957414d866dea1ba31e8bb81cd633a0c1a38f'
+
+  url "https://downloads.sourceforge.net/zdfmediathk/Mediathek/Mediathek%20#{version}/MediathekView_#{version}.dmg"
+  appcast 'https://sourceforge.net/projects/zdfmediathk/rss?path=/Mediathek',
+          checkpoint: '840b20fd071949773b6e540a9eb5783065efcc676e5084487f178b1a77627d0f'
+  name 'MediathekView'
+  homepage 'https://sourceforge.net/projects/zdfmediathk/'
+  license :gpl
+
+  app 'MediathekView.app'
 end

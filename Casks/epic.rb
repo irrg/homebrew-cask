@@ -1,8 +1,14 @@
-class Epic < Cask
-  url 'https://ed5b681d56298a85550d-7d665255a6e48f36b11ee3cfeece77e0.ssl.cf1.rackcdn.com/epic_mac_33_alternate/Epic.dmg'
-  appcast 'https://updates.epicbrowser.com/mac_updates/appcast.xml'
-  homepage 'http://www.epicbrowser.com'
-  version 'latest'
-  sha256 :no_check
-  link 'Epic.app'
+cask 'epic' do
+  version '49.0.2575.1'
+  sha256 'a4151a95705685257c7b38a1c6d6496a9a82743c49bdc3ed9c12957cf714e67b'
+
+  # s3.amazonaws.com/epicprivacybrowser was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/epicprivacybrowser/mac/Epic_OSX_#{version}.zip"
+  appcast 'https://updates.epicbrowser.com/mac_updates/appcast.xml',
+          checkpoint: 'baa4248683b2bde4cb5124bada0f5f7330ed865ef266ef7a7014729269debdf3'
+  name 'Epic Privacy Browser'
+  homepage 'https://www.epicbrowser.com/'
+  license :gratis
+
+  app 'Epic.app'
 end

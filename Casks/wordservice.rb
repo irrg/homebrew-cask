@@ -1,7 +1,12 @@
-class Wordservice < Cask
-  url 'https://s3.amazonaws.com/DTWebsiteSupport/download/freeware/wordservice/2.8/WordService.zip'
+cask 'wordservice' do
+  version '2.8.1'
+  sha256 'c8085d93400ee60d103225fbaa53409fe66b8c92afe6cda05ca74916562c3a92'
+
+  # amazonaws.com/DTWebsiteSupport was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/DTWebsiteSupport/download/freeware/wordservice/#{version}/WordService.zip"
+  name 'WordService'
   homepage 'http://www.devontechnologies.com/products/freeware.html#c1115'
-  version '2.8'
-  sha256 '2d32be5f99a1fd6d01d2f2d1338ec101918edec6e9a79cbe960a82bd68383478'
-  service 'WordService/WordService.service'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'WordService.app'
 end

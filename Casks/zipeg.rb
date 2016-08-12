@@ -1,7 +1,11 @@
-class Zipeg < Cask
-  url 'http://www.zipeg.net/downloads/zipeg_mac.dmg'
-  homepage 'http://www.zipeg.net/'
-  version 'latest'
+cask 'zipeg' do
+  version :latest
   sha256 :no_check
-  link 'Zipeg.app'
+
+  url 'https://www.zipeg.net/downloads/zipeg_mac.dmg'
+  name 'Zipeg'
+  homepage 'https://www.zipeg.net/'
+  license :gratis
+
+  app 'Zipeg.app'
 end

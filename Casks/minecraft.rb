@@ -1,7 +1,12 @@
-class Minecraft < Cask
-  url 'https://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.dmg'
-  homepage 'http://minecraft.net'
-  version 'latest'
+cask 'minecraft' do
+  version :latest
   sha256 :no_check
-  link 'Minecraft.app'
+
+  # mojang.com was verified as official when first introduced to the cask
+  url 'https://launcher.mojang.com/download/Minecraft.dmg'
+  name 'Minecraft'
+  homepage 'https://minecraft.net/'
+  license :commercial
+
+  app 'Minecraft.app'
 end

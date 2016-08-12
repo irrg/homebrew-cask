@@ -1,9 +1,15 @@
-class Klayout < Cask
-  url 'http://178.77.72.242/downloads/klayout.0.23.2.pkg'
-  homepage 'http://www.klayout.de/index.html'
-  version '0.23.2'
-  sha256 '96ce3fdead710248ed2ed4f25c9a94859949466d42eaa4f87881c17567dc1f15'
-  install 'klayout.0.23.2.pkg'
-  uninstall :pkgutil => 'klayout.de',
-            :quit => 'klayout.de'
+cask 'klayout' do
+  version '0.24.8'
+  sha256 '95b38f338b76636fc3fa840b747fc3a62dd9335a69163996fd741f289c62f40e'
+
+  # klayout.org was verified as official when first introduced to the cask
+  url "http://www.klayout.org/downloads/klayout-#{version}-MacOSX-Yosemite-1-Qt487mp.dmg.bz2"
+  name 'KLayout'
+  homepage 'http://www.klayout.de/'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  suite '.', target: 'KLayout'
+
+  uninstall pkgutil: 'klayout.de',
+            quit:    'klayout.de'
 end

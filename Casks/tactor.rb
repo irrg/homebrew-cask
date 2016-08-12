@@ -1,7 +1,14 @@
-class Tactor < Cask
+cask 'tactor' do
+  version '1.1'
+  sha256 'd116a46bb9392f15d5e6698591403267057f5769bb99be105e7a7f9425d9f260'
+
+  # dl.dropboxusercontent.com/u/7614970 was verified as official when first introduced to the cask
   url 'https://dl.dropboxusercontent.com/u/7614970/Tactor.zip'
-  homepage 'http://onflapp.wordpress.com/tactor/'
-  version '0.4.6-BETA'
-  sha256 'cfc24f13e7b604c3ffa315a99874bb22faeb1e0d2b5a4db6e31510fcdb248bd4'
-  link 'Tactor.app'
+  appcast 'https://onflapp.appspot.com/tactor',
+          checkpoint: '7ebe111d2fc01fa1148dbbbdd9c25bcc8295b8f3d7f16438ed3d4f49e6f6c443'
+  name 'Tactor'
+  homepage 'https://onflapp.wordpress.com/tactor/'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'Tactor.app'
 end

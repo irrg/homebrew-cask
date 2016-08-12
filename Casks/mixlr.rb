@@ -1,8 +1,11 @@
-class Mixlr < Cask
-  url 'http://cdn.mixlr.com/Mixlr_beta_latest.pkg'
-  homepage 'http://mixlr.com'
-  version 'latest'
+cask 'mixlr' do
+  version :latest
   sha256 :no_check
-  install 'Mixlr_beta_latest.pkg'
-  uninstall :pkgutil => 'com.mixlr.Mixlr'
+
+  url 'http://cdn.mixlr.com/Mixlr.dmg'
+  name 'Mixlr'
+  homepage 'https://mixlr.com/'
+  license :gratis
+
+  app 'Mixlr.app'
 end

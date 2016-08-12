@@ -1,7 +1,11 @@
-class Movist < Cask
-  url 'https://github.com/downloads/samiamwork/Movist/Movist.app.zip'
-  homepage 'https://github.com/samiamwork/Movist'
-  version 'latest'
+cask 'movist' do
+  version :latest
   sha256 :no_check
-  link 'Movist.app'
+
+  url 'https://github.com/downloads/samiamwork/Movist/Movist.app.zip'
+  name 'Movist'
+  homepage 'https://github.com/samiamwork/Movist'
+  license :gpl
+
+  app 'Movist.app'
 end

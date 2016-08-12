@@ -1,31 +1,51 @@
-class Displaylink < Cask
-  url 'http://www.displaylink.com/support/file.php',
-      :data => {
-        'file' => 'DisplayLink_MacOSX_V2.2Beta.dmg',
-        'folder' => 'publicsoftware',
-        'id' => '330'
-      },
-      :using => :post
+cask 'displaylink' do
+  if MacOS.version <= :lion
+    version '2.2,121'
+    sha256 '5c9a97a476b5ff27811491eebb653a03c96f899562b67566c24100d8593b1daa'
+  else
+    version '2.5.1,573'
+    sha256 'b8eb10da99ce115a6649d79f23d4ee2c8ce32863b9139df285f3750d75eaa952'
+  end
+
+  url "http://www.displaylink.com/downloads/file?id=#{version.after_comma}",
+      data:  {
+               'fileId'        => version.after_comma,
+               'accept_submit' => 'Accept',
+             },
+      using: :post
+  name 'DisplayLink USB Graphics Software'
   homepage 'http://www.displaylink.com'
-  version '2.2Beta'
-  sha256 '9b15e0539bbfdd56d1f2406dba4e94916d856fa0a3e830f5e2843164ba19c604'
-  install 'DisplayLink Software Installer.pkg'
-  uninstall :pkgutil => ['com.displaylink.displaylinkdriversigned',
-                         'com.displaylink.displaylinkdriverunsigned']
-            # :kext => ['com.displaylink.driver.DisplayLinkDriver',
-            #           'com.displaylink.dlusbncm'],
-            # :launchctl => ['com.displaylink.displaylinkmanager',
-            #                'com.displaylink.useragent',
-            #                'com.displaylink.useragent-prelogin'],
-            # :quit => ['DisplayLink.DisplayLinkUserAgent'],
-            # :script => {
-            #   :executable => 'DisplayLink Software Uninstaller.app/Contents/MacOS/DisplayLink Software Uninstaller'
-            # },
-            # :files => ['/Applications/DisplayLink Software Uninstaller.app']
+  license :gratis
+
+  pkg 'DisplayLink Software Installer.pkg'
+
+  uninstall pkgutil:   [
+                         'com.displaylink.displaylinkdriver',
+                         'com.displaylink.displaylinkdriversigned',
+                         'com.displaylink.displaylinkdriverunsigned',
+                       ],
+            # 'kextunload -b com.displaylink.driver.DisplayLinkDriver' causes kernel panic
+            # kext:      [
+            #              'com.displaylink.driver.DisplayLinkDriver',
+            #              'com.displaylink.dlusbncm'
+            #            ],
+            launchctl: [
+                         'com.displaylink.useragent-prelogin',
+                         'com.displaylink.useragent',
+                         'com.displaylink.displaylinkmanager',
+                       ],
+            quit:      'DisplayLinkUserAgent',
+            delete:    [
+                         '/Applications/DisplayLink',
+                         '/Library/LaunchAgents/com.displaylink.useragent-prelogin.plist',
+                         '/Library/LaunchAgents/com.displaylink.useragent.plist',
+                         '/Library/LaunchDaemons/com.displaylink.displaylinkmanager.plist',
+                       ]
+
   caveats <<-EOS.undent
     Installing this Cask means you have AGREED to the DisplayLink
     Software License Agreement at
 
-        http://www.displaylink.com/support/sla.php?fileid=102
+      http://www.displaylink.com/downloads/file?id=#{version.after_comma}
   EOS
 end

@@ -1,10 +1,13 @@
-class NetbeansPhp < Cask
-  url 'http://download.netbeans.org/netbeans/8.0/final/bundles/netbeans-8.0-php-macosx.dmg'
+cask 'netbeans-php' do
+  version '8.1'
+  sha256 '40d95d31f0f3b87c9d79964c0faa0303f2ae91d9a92a405d7f396857a10bfef1'
+
+  url "http://download.netbeans.org/netbeans/#{version}/final/bundles/netbeans-#{version}-php-macosx.dmg"
+  name 'NetBeans IDE for PHP'
   homepage 'https://netbeans.org/'
-  version '8.0'
-  sha256 'b33830cb86bc5d626717a9dbbd0a94bf37530b8cfd06b1e4526b060921115ec5'
-  install 'NetBeans 8.0.mpkg'
-  uninstall :files => [
-                       '/Applications/NetBeans'
-                      ]
+  license :oss
+
+  pkg "NetBeans #{version}.pkg"
+
+  uninstall delete: '/Applications/NetBeans'
 end

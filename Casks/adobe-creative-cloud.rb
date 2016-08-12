@@ -1,10 +1,11 @@
-class AdobeCreativeCloud < Cask
-  url 'https://ccmdls.adobe.com/AdobeProducts/KCCC/1/osx10/CreativeCloudInstaller.dmg'
-  homepage 'https://creative.adobe.com/products/creative-cloud'
-  version 'latest'
+cask 'adobe-creative-cloud' do
+  version :latest
   sha256 :no_check
-  caskroom_only true
-  caveats do
-    manual_installer 'Creative Cloud Installer.app'
-  end
+
+  url 'https://ccmdls.adobe.com/AdobeProducts/KCCC/1/osx10/CreativeCloudInstaller.dmg'
+  name 'Adobe Creative Cloud'
+  homepage 'https://creative.adobe.com/products/creative-cloud'
+  license :commercial
+
+  installer manual: 'Creative Cloud Installer.app'
 end

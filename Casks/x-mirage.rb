@@ -1,7 +1,11 @@
-class XMirage < Cask
-  url 'http://dl.x-mirage.com/x-mirage.dmg'
-  homepage 'http://www.x-mirage.com/x-mirage/'
-  version 'latest'
+cask 'x-mirage' do
+  version :latest
   sha256 :no_check
-  link 'X-Mirage.app'
+
+  url 'http://dl.x-mirage.com/x-mirage.dmg'
+  name 'X-Mirage'
+  homepage 'http://www.x-mirage.com/x-mirage/'
+  license :commercial
+
+  app 'X-Mirage.app'
 end

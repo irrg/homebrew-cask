@@ -1,11 +1,18 @@
-class Plover < Cask
-  url 'https://github.com/openstenoproject/plover/releases/download/v2.5.8/Plover.dmg'
-  homepage 'http://stenoknight.com/wiki/Main_Page'
-  version '2.5.8'
-  sha256 'a8bbeddb5d6fb8d4499844257035edd62e431a4f1eb7959bdf17a15c1cbe12de'
-  link 'plover.app'
+cask 'plover' do
+  version '3.0.0'
+  sha256 '89505ebad2700e38d57b5c710550dac0ad4b9a44bd1e15ba8b1f162f0b464694'
 
-  caveats do
-    assistive_devices
-  end
+  # github.com/openstenoproject/plover was verified as official when first introduced to the cask
+  url "https://github.com/openstenoproject/plover/releases/download/v#{version}/Plover-#{version}.dmg"
+  appcast 'https://github.com/openstenoproject/plover/releases.atom',
+          checkpoint: '8eb7487c0243890078c45e7f0a3ca5b856f3d3b980ec9737f5aa87607037b91e'
+  name 'Plover'
+  homepage 'http://stenoknight.com/wiki/Main_Page'
+  license :gpl
+
+  accessibility_access true
+
+  app 'plover.app'
+
+  zap delete: '~/Library/Application Support/plover/'
 end

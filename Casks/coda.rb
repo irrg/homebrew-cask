@@ -1,7 +1,24 @@
-class Coda < Cask
-  url 'https://panic.com/coda/d/Coda%202.0.13.zip'
-  homepage 'https://panic.com/Coda/'
-  version '2.0.13'
-  sha256 '89ae6432997915fa93c5a5eafaf4ea1774af78961ff0b7f37722a149618387aa'
-  link 'Coda 2.app'
+cask 'coda' do
+  version '2.5.16'
+  sha256 '62c0e6d10ef24d4de9fc9a5c91304399ccf8422f9d81d8703ea9d98c453f29b7'
+
+  url "https://download.panic.com/coda/Coda%20#{version}.zip"
+  name 'Panic Coda'
+  homepage 'https://panic.com/coda/'
+  license :commercial
+
+  depends_on macos: '>= :lion'
+
+  app 'Coda 2.app'
+
+  zap delete: [
+                '~/Library/Application Support/Coda 2',
+                '~/Library/Application Support/Growl/Tickets/Coda 2.growlTicket',
+                '~/Library/Caches/com.panic.Coda2',
+                '~/Library/Caches/com.apple.helpd/Generated/com.panic.Coda2.help',
+                '~/Library/Preferences/com.panic.Coda2.plist',
+                '~/Library/Preferences/com.panic.Coda2.LSSharedFileList.plist',
+                '~/Library/Preferences/com.panic.Coda2.LSSharedFileList.plist.lockfile',
+                '~/Library/Saved Application State/com.panic.Coda2.savedState',
+              ]
 end

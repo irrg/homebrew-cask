@@ -1,7 +1,11 @@
-class Jumpshare < Cask
-  url 'https://jumpshare.com/desktop/mac/Jumpshare_1.0.19.dmg'
+cask 'jumpshare' do
+  version '2.1.2'
+  sha256 '4745d9aa6902c902dd81eefdb1977b59da6687ce4040b0f3840f9c47ae0a3d48'
+
+  url "https://apps.jumpshare.com/desktop/mac/Jumpshare-#{version}.zip"
+  name 'Jumpshare'
   homepage 'https://jumpshare.com/'
-  version '1.0.19'
-  sha256 'fe0b05bb795410403342f6f147e23be685207e11f2a1c49c3ce4f603f089479e'
-  link 'Jumpshare.app'
+  license :gratis
+
+  app 'Jumpshare.app'
 end

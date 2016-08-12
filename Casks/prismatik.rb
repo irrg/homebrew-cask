@@ -1,7 +1,14 @@
-class Prismatik < Cask
-  url 'https://github.com/Atarity/Lightpack/releases/download/5.10.5/Prismatik.5.10.5.dmg'
+cask 'prismatik' do
+  version '5.11.2'
+  sha256 '47e7e5335c432cb9aec169b129b24fae7bb367665843c5cbaa0e49c6f0db13f5'
+
+  # github.com/woodenshark/Lightpack was verified as official when first introduced to the cask
+  url "https://github.com/woodenshark/Lightpack/releases/download/#{version}/Prismatik.#{version}.dmg"
+  appcast 'https://github.com/woodenshark/Lightpack/releases.atom',
+          checkpoint: 'ed21f0f168d0db0f3764fdb42fa027c394f3df5781cd504526393422fe522351'
+  name 'Prismatik'
   homepage 'http://lightpack.tv/'
-  version '5.10.5'
-  sha256 'c1536aea371ee99fd07243c105e465a13bda2b69a81d80b213ea6ab0e7306650'
-  link 'Prismatik.app'
+  license :gpl
+
+  app 'Prismatik.app'
 end

@@ -1,7 +1,11 @@
-class Pharo < Cask
-  url 'http://files.pharo.org/platform/Pharo3.0-mac.zip'
-  homepage 'http://www.pharo-project.org/home'
-  version '3.0'
-  sha256 'f28424c66f296aae9628c9d54b6fc8590d6db0cd512b7116b06180aded6da428'
-  link 'Pharo3.0.app'
+cask 'pharo' do
+  version '5.0'
+  sha256 :no_check # required as upstream package is updated in-place
+
+  url "http://files.pharo.org/platform/Pharo#{version}-mac.zip"
+  name 'Pharo'
+  homepage 'https://pharo.org'
+  license :oss
+
+  app "Pharo#{version}.app"
 end

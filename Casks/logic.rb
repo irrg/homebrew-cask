@@ -1,8 +1,11 @@
-class Logic < Cask
-  url 'http://downloads.saleae.com/Logic%201.1.15%20(10.5%2B).pkg'
-  homepage 'http://www.saleae.com/'
-  version '1.1.15'
-  sha256 '1c37d6809bfb6daec88a7a34c6f056b93179c2471385f5e7be4d4271995995b1'
-  install 'Logic 1.1.15 (10.5+).pkg'
-  uninstall :pkgutil => 'com.saleae.saleae.Logic.pkg'
+cask 'logic' do
+  version '1.2.10'
+  sha256 '02042d0527069581b4f4cf6d5dbd7d16312ae2219d2787d53ad677ddd6fa26b4'
+
+  url "http://downloads.saleae.com/logic/#{version}/Logic-#{version}-Darwin.dmg"
+  name 'Logic'
+  homepage 'https://www.saleae.com/'
+  license :commercial
+
+  app 'Logic.app'
 end

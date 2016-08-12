@@ -1,8 +1,11 @@
-class RawPhotoProcessor < Cask
-  url 'http://www.raw-photo-processor.com/RPP/RPP_64.zip'
-  homepage 'http://www.raw-photo-processor.com/RPP/Overview.html'
-  version '4.7.2'
-  nested_container 'RPP472_1672_64.dmg'
-  sha256 'ce003b7c78916baaf51b39e26633f9ac069e78b7e5bf8904b966c4c409c06f39'
-  link 'Raw Photo Processor 64.app'
+cask 'raw-photo-processor' do
+  version :latest
+  sha256 :no_check
+
+  url 'https://www.raw-photo-processor.com/RPP/RPP_64.zip'
+  name 'Raw Photo Processor'
+  homepage 'https://www.raw-photo-processor.com/RPP/Overview.html'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'Raw Photo Processor 64.app'
 end

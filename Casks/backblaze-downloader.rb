@@ -1,7 +1,11 @@
-class BackblazeDownloader < Cask
-  url 'https://secure.backblaze.com/mac_restore_downloader'
-  homepage 'http://www.backblaze.com/'
-  version 'latest'
+cask 'backblaze-downloader' do
+  version :latest
   sha256 :no_check
-  link 'Backblaze Downloader.app'
+
+  url 'https://secure.backblaze.com/mac_restore_downloader'
+  name 'Backblaze Downloader'
+  homepage 'https://www.backblaze.com/'
+  license :commercial
+
+  app 'Backblaze Downloader.app'
 end

@@ -1,27 +1,39 @@
-class Chefdk < Cask
-  url 'https://opscode-omnibus-packages.s3.amazonaws.com/mac_os_x/10.9/x86_64/chefdk-0.1.0-1.dmg'
-  homepage 'http://www.getchef.com/downloads/chef-dk/mac/'
-  version '0.1.0-1'
-  sha256 '6f40ebb86379cdc06987f760dce4c14a6315236f778ee1e752d16017ce5ce1ce'
-  install 'chefdk.pkg'
-  uninstall :pkgutil => 'com.getchef.pkg.chefdk',
-            :files   => [
-                         '/opt/chefdk/',
-                         '/usr/bin/berks',
-                         '/usr/bin/chef',
-                         '/usr/bin/chef-apply',
-                         '/usr/bin/chef-client',
-                         '/usr/bin/chef-shell',
-                         '/usr/bin/chef-solo',
-                         '/usr/bin/chef-zero',
-                         '/usr/bin/fauxhai',
-                         '/usr/bin/foodcritic',
-                         '/usr/bin/kitchen',
-                         '/usr/bin/knife',
-                         '/usr/bin/ohai',
-                         '/usr/bin/rubocop',
-                         '/usr/bin/shef',
-                         '/usr/bin/strain',
-                         '/usr/bin/strainer'
-                        ]
+cask 'chefdk' do
+  version '0.16.28-1'
+  sha256 'd92b6a3b1f7d826a39044cb5827f362cae4d5a61c149c81f651e61fba33af323'
+
+  url "https://packages.chef.io/stable/mac_os_x/10.11/chefdk-#{version}.dmg"
+  name 'Chef Development Kit'
+  name 'ChefDK'
+  homepage 'https://downloads.chef.io/chef-dk/'
+  license :apache
+
+  pkg "chefdk-#{version}.pkg"
+
+  # When updating this cask, please verify the list of paths to delete (and
+  # add to it if necessary):
+  #  find /usr/local/bin -lname '/opt/chefdk/*'
+  # (Source: https://docs.chef.io/install_dk.html#mac-os-x)
+  uninstall pkgutil: 'com.getchef.pkg.chefdk',
+            delete:  [
+                       '/opt/chefdk/',
+                       '/usr/local/bin/berks',
+                       '/usr/local/bin/chef',
+                       '/usr/local/bin/chef-apply',
+                       '/usr/local/bin/chef-client',
+                       '/usr/local/bin/chef-shell',
+                       '/usr/local/bin/chef-solo',
+                       '/usr/local/bin/chef-zero',
+                       '/usr/local/bin/cookstyle',
+                       '/usr/local/bin/delivery',
+                       '/usr/local/bin/fauxhai',
+                       '/usr/local/bin/foodcritic',
+                       '/usr/local/bin/kitchen',
+                       '/usr/local/bin/knife',
+                       '/usr/local/bin/ohai',
+                       '/usr/local/bin/push-apply',
+                       '/usr/local/bin/pushy-client',
+                       '/usr/local/bin/pushy-service-manager',
+                       '/usr/local/bin/rubocop',
+                     ]
 end

@@ -1,8 +1,23 @@
-class Controllermate < Cask
-  url 'http://s3.amazonaws.com/orderedbytes/ControllerMate481.dmg'
-  homepage 'http://www.orderedbytes.com/controllermate/'
-  version '4.8.1'
-  sha256 '43a21d9740364c283ffdbeb67392b48f56fa31b084f1607799321e5ed24f4a5c'
-  install 'ControllerMate.pkg'
-  uninstall :script => 'ControllerMate Uninstaller.app/Contents/MacOS/ControllerMate Uninstaller'
+cask 'controllermate' do
+  version '4.9.10'
+  sha256 '4f24f5763e96b0b0e959197dba5cc064928b59b74d49210bf5a484f4f9766d38'
+
+  # amazonaws.com/orderedbytes was verified as official when first introduced to the cask
+  url "https://s3.amazonaws.com/orderedbytes/ControllerMate#{version.no_dots}.zip"
+  appcast 'https://www.orderedbytes.com/sparkle/appcast_cm460.xml',
+          checkpoint: '6d05b022c9c81d131733523dccd2c45997f33ff694d1d76fe4016f27f5c4938a'
+  name 'ControllerMate'
+  homepage 'https://www.orderedbytes.com/controllermate/'
+  license :freemium
+
+  pkg '#temp#/ControllerMate.pkg'
+
+  uninstall pkgutil: 'com.orderedbytes.controllermate.*'
+
+  zap       delete: [
+                      '~/Library/Application Support/ControllerMate',
+                      '~/Library/Caches/com.orderedbytes.ControllerMate4',
+                      '~/Library/Logs/ControllerMate MIDI',
+                      '~/Library/Logs/ControllerMate',
+                    ]
 end

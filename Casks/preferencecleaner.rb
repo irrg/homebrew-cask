@@ -1,7 +1,11 @@
-class Preferencecleaner < Cask
-  url 'http://www.echomist.co.uk/software/downloads/PreferenceCleaner.dmg'
-  homepage 'http://www.echomist.co.uk/software/PreferenceCleaner.shtml'
-  version 'latest'
+cask 'preferencecleaner' do
+  version :latest
   sha256 :no_check
-  link 'PreferenceCleaner.app'
+
+  url 'http://www.echomist.co.uk/software/downloads/PreferenceCleaner.dmg'
+  name 'PreferenceCleaner'
+  homepage 'http://www.echomist.co.uk/software/PreferenceCleaner.php'
+  license :gratis
+
+  app 'PreferenceCleaner.app'
 end

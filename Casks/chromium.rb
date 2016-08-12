@@ -1,7 +1,19 @@
-class Chromium < Cask
-  url 'http://downloads.sourceforge.net/sourceforge/osxportableapps/ChromiumOSX_34.0.1847.137.dmg'
-  homepage 'http://www.freesmug.org/chromium'
-  version '34.0.1847.137'
-  sha256 '5fa1d5ca489329fc1c2e6d7ae5901da24e34fb3c69d37f18aeb1b5432ff7456d'
-  link 'Chromium.app'
+cask 'chromium' do
+  version :latest
+  sha256 :no_check
+
+  # download-chromium.appspot.com was verified as official when first introduced to the cask
+  url 'https://download-chromium.appspot.com/dl/Mac?type=continuous'
+  name 'Chromium'
+  homepage 'https://www.chromium.org/Home'
+  license :oss
+
+  app 'chrome-mac/Chromium.app'
+
+  zap delete: [
+                '~/Library/Preferences/org.chromium.Chromium.plist',
+                '~/Library/Caches/Chromium',
+                '~/Library/Application Support/Chromium',
+                '~/Library/Saved Application State/org.chromium.Chromium.savedState',
+              ]
 end

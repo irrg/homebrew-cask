@@ -1,7 +1,11 @@
-class Namely < Cask
-  url 'http://amarsagoo.info/namely/Namely.dmg'
-  homepage 'http://amarsagoo.info/namely'
-  version 'latest'
+cask 'namely' do
+  version :latest
   sha256 :no_check
-  link 'Namely.app'
+
+  url 'http://amarsagoo.info/namely/Namely.dmg'
+  name 'Namely'
+  homepage 'http://amarsagoo.info/namely'
+  license :gratis
+
+  app 'Namely.app'
 end

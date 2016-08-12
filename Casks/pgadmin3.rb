@@ -1,8 +1,20 @@
-class Pgadmin3 < Cask
+cask 'pgadmin3' do
   # note: "3" is not a version number, but indicates a different vendor
-  url 'http://ftp.postgresql.org/pub/pgadmin3/release/v1.18.1/osx/pgadmin3-1.18.1.dmg'
-  homepage 'http://pgadmin.org'
-  version '1.18.1'
-  sha256 '6fe924168c7a8ee9224527fcafc3e612de60c011a27dc44b8293401ff346627d'
-  link 'pgAdmin3.app'
+  version '1.22.1'
+  sha256 'fa34b5baf09cf597850101b2806fdf80490c88d6fbf652da3750856423051603'
+
+  # ftp.postgresql.org/pub/pgadmin3 was verified as official when first introduced to the cask
+  url "https://ftp.postgresql.org/pub/pgadmin3/release/v#{version}/osx/pgadmin3-#{version}.dmg"
+  name 'pgAdmin'
+  homepage 'https://pgadmin.org/'
+  license :oss
+  gpg "#{url}.sig",
+      key_id: 'e0c4ceeb826b1fda4fb468e024adfaaf698f1519'
+
+  app 'pgAdmin3.app'
+
+  zap delete: [
+                '~/Library/Preferences/pgadmin3 Preferences',
+                '~/Library/Saved Application State/org.postgresql.pgadmin.savedState',
+              ]
 end

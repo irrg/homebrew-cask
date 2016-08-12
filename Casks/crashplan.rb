@@ -1,9 +1,15 @@
-class Crashplan < Cask
-  url 'http://download.crashplan.com/installs/mac/install/CrashPlan/CrashPlan_3.6.3_Mac.dmg'
-  homepage 'http://www.crashplan.com/'
-  version '3.6.3'
-  sha256 'af6959a5a2e8584195fa7381014ba462ced114763995b50266d6353a95b84a7d'
-  install 'Install CrashPlan.pkg'
-  uninstall :script  => 'Uninstall.app/Contents/Resources/uninstall.sh',
-            :pkgutil => 'com.crashplan.app.pkg'
+cask 'crashplan' do
+  version '4.7.0'
+  sha256 'ea138c87bb158fa47ba2aa5c7f5bcd43cccb9a7db9d83ace4a6954d1ae678d55'
+
+  # crashplan.com was verified as official when first introduced to the cask
+  url "https://download.crashplan.com/installs/mac/install/CrashPlan/CrashPlan_#{version}_Mac.dmg"
+  name 'CrashPlan'
+  homepage 'https://www.code42.com/crashplan/'
+  license :gratis
+
+  pkg 'Install CrashPlan.pkg'
+
+  uninstall script:  'Uninstall.app/Contents/Resources/uninstall.sh',
+            pkgutil: 'com.crashplan.app.pkg'
 end

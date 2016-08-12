@@ -1,8 +1,16 @@
-class HaskellPlatform < Cask
-  url 'http://lambda.haskell.org/platform/download/2013.2.0.0/Haskell%20Platform%202013.2.0.0%2064bit.pkg'
-  homepage 'http://www.haskell.org/platform/'
-  version '2013.2.0.0'
-  sha256 'ff7ca6dfdeaab5c067e6e23dd62b07e0f9ec061d0e8cb4e67b09b82f8b939a27'
-  install 'Haskell Platform 2013.2.0.0 64bit.pkg'
-  uninstall :script => { :executable => '/usr/bin/uninstall-hs', :args => %w[all --remove] }
+cask 'haskell-platform' do
+  version '8.0.1'
+  sha256 'f579f8f120998faba6a9158be7b6c218f73ce65bd041046f0a2677b8cc614129'
+
+  url "https://haskell.org/platform/download/#{version}/Haskell%20Platform%20#{version}%20Full%2064bit-signed-a.pkg"
+  name 'Haskell Platform'
+  homepage 'https://www.haskell.org/platform/'
+  license :bsd
+
+  depends_on macos: '>= :snow_leopard'
+
+  pkg "Haskell Platform #{version} Full 64bit-signed-a.pkg"
+
+  uninstall script:  { executable: '/Library/Haskell/bin/uninstall-hs', args: %w[all --remove] },
+            pkgutil: 'org.haskell.HaskellPlatform.*'
 end

@@ -1,7 +1,13 @@
-class Timemachineeditor < Cask
-  url 'http://timesoftware.free.fr/timemachineeditor/TimeMachineEditor.zip'
-  homepage 'http://timesoftware.free.fr/timemachineeditor/'
-  version 'latest'
+cask 'timemachineeditor' do
+  version :latest
   sha256 :no_check
-  link 'TimeMachineEditor.app'
+
+  url 'http://timesoftware.free.fr/timemachineeditor/TimeMachineEditor.pkg'
+  name 'TimeMachineEditor'
+  homepage 'http://timesoftware.free.fr/timemachineeditor/'
+  license :gratis
+
+  pkg 'TimeMachineEditor.pkg'
+
+  uninstall pkgutil: 'com.tclementdev.pkg.timemachineeditor'
 end

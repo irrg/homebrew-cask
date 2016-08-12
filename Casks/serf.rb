@@ -1,7 +1,14 @@
-class Serf < Cask
-  url 'https://dl.bintray.com/mitchellh/serf/0.6.0_darwin_amd64.zip'
-  homepage 'http://www.serfdom.io/'
-  version '0.6.0'
-  sha256 '356f72abf85766b120fc2c2bc6438c13b91950d7ec932a36241551a347f80369'
+cask 'serf' do
+  version '0.7.0'
+  sha256 '30ab3f2fe65cbef0ce1cefa27c7aa27043fc3634c52a2f46d8921964b1ab2380'
+
+  # hashicorp.com/serf was verified as official when first introduced to the cask
+  url "https://releases.hashicorp.com/serf/#{version}/serf_#{version}_darwin_amd64.zip"
+  appcast 'https://github.com/hashicorp/serf/releases.atom',
+          checkpoint: 'ddc3f79c2b3e97a00f88d514dda17428961eccefd74afeb8470a0e458af33c7d'
+  name 'Serf'
+  homepage 'https://www.serfdom.io/'
+  license :mpl
+
   binary 'serf'
 end

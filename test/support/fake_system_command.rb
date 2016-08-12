@@ -1,4 +1,4 @@
-class Cask::FakeSystemCommand
+class Hbc::FakeSystemCommand
   def self.responses
     @responses ||= {}
   end
@@ -17,47 +17,54 @@ class Cask::FakeSystemCommand
     @system_calls = nil
   end
 
-  def self.stubs_command(command, response='')
+  def self.stubs_command(command, response = "")
     responses[command] = response
   end
 
-  def self.expects_command(command, response='', times=1)
+  def self.expects_command(command, response = "", times = 1)
     stubs_command(command, response)
     expectations[command] = times
+  end
+
+  def self.expect_and_pass_through(command, times = 1)
+    pass_through = ->(cmd, opts) { Hbc::SystemCommand.run(cmd, opts) }
+    expects_command(command, pass_through, times)
   end
 
   def self.verify_expectations!
     expectations.each do |command, times|
       unless system_calls[command] == times
-        fail("expected #{command.inspect} to be run #{times} times, but got #{system_calls[command]}")
+        raise("expected #{command.inspect} to be run #{times} times, but got #{system_calls[command]}")
       end
     end
   end
 
-  def self.run(command, options={})
-    command = Cask::SystemCommand._process_options(command, options)
+  def self.run(command_string, options = {})
+    command = Hbc::SystemCommand.new(command_string, options).command
     unless responses.key?(command)
-      fail("no response faked for #{command.inspect}, faked responses are: #{responses.inspect}")
+      raise("no response faked for #{command.inspect}, faked responses are: #{responses.inspect}")
     end
     system_calls[command] += 1
-    if options[:plist]
-      Plist::parse_xml(responses[command])
+
+    response = responses[command]
+    if response.respond_to?(:call)
+      response.call(command_string, options)
     else
-      responses[command]
+      Hbc::SystemCommand::Result.new(command, response, "", 0)
     end
   end
 
-  def self.run!(command, options={})
-    run(command, options.merge(:must_succeed => true))
+  def self.run!(command, options = {})
+    run(command, options.merge(must_succeed: true))
   end
 end
 
 module FakeSystemCommandHooks
   def after_teardown
     super
-    Cask::FakeSystemCommand.verify_expectations!
+    Hbc::FakeSystemCommand.verify_expectations!
   ensure
-    Cask::FakeSystemCommand.clear
+    Hbc::FakeSystemCommand.clear
   end
 end
 

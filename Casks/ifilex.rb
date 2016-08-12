@@ -1,7 +1,11 @@
-class Ifilex < Cask
-  url 'http://www.osxbytes.com/iFileX.dmg'
-  homepage 'http://www.osxbytes.com/page3/index.html'
-  version 'latest'
+cask 'ifilex' do
+  version :latest
   sha256 :no_check
-  link 'iFileX.app'
+
+  url 'http://www.osxbytes.com/iFileX.dmg'
+  name 'iFileX'
+  homepage 'http://www.osxbytes.com/ifilex.html'
+  license :gratis
+
+  app 'iFileX.app'
 end

@@ -1,7 +1,12 @@
-class Prepros < Cask
-  url 'http://download.alphapixels.com/Prepros-4.0.1.zip'
-  homepage 'http://alphapixels.com/prepros/'
-  version '4.0.1'
-  sha256 '84510d1252274898b0fc4f95828b60e29a2c946a158bbf7d3188611c62dcd3b1'
-  link 'Prepros.app'
+cask 'prepros' do
+  version '5.10.2'
+  sha256 '45cdd9fb4b30cc2a26cdb211c713ef8c6f9ff3e9636131888ed796ae56262fa8'
+
+  # prepros.io.s3.amazonaws.com was verified as official when first introduced to the cask
+  url "http://prepros.io.s3.amazonaws.com/installers/Prepros-Mac-#{version}.zip"
+  name 'Prepros'
+  homepage 'https://prepros.io/'
+  license :commercial
+
+  app 'Prepros.app'
 end

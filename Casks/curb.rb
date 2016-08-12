@@ -1,7 +1,13 @@
-class Curb < Cask
-  url 'http://mrrsoftware.com/Downloads/Curb/Curb-1_1_1.zip'
-  homepage 'http://mrrsoftware.com/curb'
+cask 'curb' do
   version '1.1.1'
   sha256 '832750d2a75272763c5c2f681b11670584626c9d93bf993d6b3af96234558f68'
-  link 'Curb.app'
+
+  url "https://mrrsoftware.com/Downloads/Curb/Curb-#{version.dots_to_underscores}.zip"
+  appcast 'https://www.mrrsoftware.com/Downloads/Curb/CurbSoftwareUpdates.xml',
+          checkpoint: '2141e205b0037e8e79d74564078cdaeb803b0dc2c1162e45477ebb9bcc72ae92'
+  name 'Curb'
+  homepage 'https://mrrsoftware.com/curb'
+  license :gratis
+
+  app 'Curb.app'
 end

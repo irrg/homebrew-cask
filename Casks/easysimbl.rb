@@ -1,7 +1,18 @@
-class Easysimbl < Cask
-  url 'http://github.com/norio-nomura/EasySIMBL/releases/download/EasySIMBL-1.6/EasySIMBL-1.6.zip'
-  homepage 'https://github.com/norio-nomura/EasySIMBL/'
-  version '1.6'
-  sha256 '42139885e35946f1b2decb9cdfa755b8df8c050134463d76b2e3e0f68e783e26'
-  link 'EasySIMBL.app'
+cask 'easysimbl' do
+  version '1.7.1'
+  sha256 'd8afe8bfd7ea32f6d8ad1d4438ddc9ce2ad47e66942e6b6e900807daa59ddd50'
+
+  url "https://github.com/norio-nomura/EasySIMBL/releases/download/EasySIMBL-#{version}/EasySIMBL-#{version}.zip"
+  appcast 'https://github.com/norio-nomura/EasySIMBL/releases.atom',
+          checkpoint: 'd4dbce66da553b7cd56a005c0d6e154f87ffe8bf0728b530e3a18b4f00915572'
+  name 'EasySIMBL'
+  homepage 'https://github.com/norio-nomura/EasySIMBL'
+  license :gpl
+
+  app 'EasySIMBL.app'
+
+  zap delete: [
+                '~/Library/Preferences/com.github.norio-nomura.EasySIMBL.plist',
+                '~/Library/Preferences/com.github.norio-nomura.SIMBL-Agent.plist',
+              ]
 end

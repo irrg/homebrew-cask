@@ -1,7 +1,14 @@
-class Identify < Cask
-  url 'https://www.macupdate.com/download/33814/iDentifyLite545.zip'
+cask 'identify' do
+  version '551'
+  sha256 'b3691e56912882deb9d8021afa30643cc3e7dd9e4758d550a83649f491b9285a'
+
+  # dl.dropbox.com/u/1495067 was verified as official when first introduced to the cask
+  url "https://dl.dropbox.com/u/1495067/iDentifySparkle/iDentifyLite#{version}.zip"
+  appcast 'https://dl.dropboxusercontent.com/u/1495067/iDentifySparkle/iDentifyAppcast.xml',
+          checkpoint: '703a63799a0a8ed68a772bf9514779c45d02707690ac45fb4355a3fd666ddcba'
+  name 'iDentify'
   homepage 'http://identify2.arrmihardies.com/'
-  version '545'
-  sha256 'e850d12335befe8c092b8758f0ca1b26cb7f0c1decda98e5ef0525b3a37fb2d2'
-  link 'iDentify.app'
+  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
+
+  app 'iDentify.app'
 end

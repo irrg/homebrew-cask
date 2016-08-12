@@ -1,7 +1,29 @@
-class GoogleChrome < Cask
-  url 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
-  homepage 'https://www.google.com/chrome/'
-  version 'latest'
+cask 'google-chrome' do
+  version :latest
   sha256 :no_check
-  link 'Google Chrome.app'
+
+  url 'https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
+  name 'Google Chrome'
+  homepage 'https://www.google.com/chrome/'
+  license :gratis
+
+  auto_updates true
+  depends_on macos: '>= :mavericks'
+
+  app 'Google Chrome.app'
+
+  zap delete: [
+                '~/Library/Application Support/Google/Chrome',
+                '~/Library/Caches/Google/Chrome',
+                '~/Library/Caches/com.google.Chrome',
+                '~/Library/Caches/com.google.Chrome.helper.EH',
+                '~/Library/Caches/com.google.Keystone.Agent',
+                '~/Library/Caches/com.google.SoftwareUpdate',
+                '~/Library/Google/GoogleSoftwareUpdate',
+                '~/Library/Logs/GoogleSoftwareUpdateAgent.log',
+              ],
+      rmdir:  [
+                '~/Library/Caches/Google',
+                '~/Library/Google',
+              ]
 end

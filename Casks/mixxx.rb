@@ -1,7 +1,11 @@
-class Mixxx < Cask
-  url 'http://downloads.mixxx.org/mixxx-1.11.0/mixxx-1.11.0-macintel.dmg'
-  homepage 'http://www.mixxx.org'
-  version '1.11.0'
-  sha256 '21fa06153a1a019c001f96024caa940ea6307a29f4cebd334fb2b7f071013314'
-  link 'Mixxx.app'
+cask 'mixxx' do
+  version '2.0.0'
+  sha256 '8ba833269d87c00fbb77d08594e30c1fcc78cfa10b92a6d52457bd8d39e52649'
+
+  url "https://downloads.mixxx.org/mixxx-#{version}/mixxx-#{version}-osxintel.dmg"
+  name 'Mixxx'
+  homepage 'https://www.mixxx.org'
+  license :gpl
+
+  app 'Mixxx.app'
 end

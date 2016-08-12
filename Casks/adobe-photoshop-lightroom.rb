@@ -1,10 +1,31 @@
-class AdobePhotoshopLightroom < Cask
-  url 'http://download.adobe.com/pub/adobe/lightroom/mac/5.x/Lightroom_5_LS11_mac_5_4.dmg'
-  homepage 'http://www.adobe.com/products/photoshop-lightroom.html'
-  version '5.4'
-  sha256 'd935735cac3cae088568a1fb0f3fd57a15ceb55c4daa4d64659fff002e339cee'
-  install 'Adobe Photoshop Lightroom 5.pkg'
-  uninstall :pkgutil => 'com.adobe.Lightroom5',
-            :quit => 'com.adobe.Lightroom5',
-            :files => '/Applications/Adobe Photoshop Lightroom 5.app'
+cask 'adobe-photoshop-lightroom' do
+  version '6.5'
+  sha256 '7ad434e0cce0c24bd8caaf81adf80d2d5a57b5348c2a75b7eaa6bb29dd06311b'
+
+  url "http://swupdl.adobe.com/updates/oobe/aam20/mac/AdobeLightroom-#{version.major}.0/#{version}/setup.dmg"
+  name 'Adobe Photoshop Lightroom'
+  homepage 'https://www.adobe.com/products/photoshop-lightroom.html'
+  license :commercial
+
+  depends_on cask: 'caskroom/versions/adobe-photoshop-lightroom600'
+
+  # staged_path not available in Installer/Uninstall Stanza, workaround by nesting with preflight/postflight
+  # see https://github.com/caskroom/homebrew-cask/pull/8887
+  # and https://github.com/caskroom/homebrew-versions/pull/296
+
+  preflight do
+    system '/usr/bin/killall', '-kill', 'SafariNotificationAgent'
+    system '/usr/bin/sudo', '-E', '--', "#{staged_path}/AdobePatchInstaller.app/Contents/MacOS/AdobePatchInstaller", '--mode=silent'
+  end
+
+  uninstall_preflight do
+    system 'brew', 'cask', 'uninstall', 'adobe-photoshop-lightroom600'
+  end
+
+  zap delete: [
+                '~/Library/Application Support/Adobe/Lightroom',
+                "~/Library/Preferences/com.adobe.Lightroom#{version.major}.plist",
+              ]
+
+  caveats 'Installation or Uninstallation may fail with Exit Code 19 (Conflicting Processes running) if Browsers, Safari Notification Service or SIMBL Services are running or Adobe Creative Cloud or any other Adobe Products are already installed. See Logs in /Library/Logs/Adobe/Installers if Installation or Uninstallation fails, to identify the conflicting processes.'
 end
