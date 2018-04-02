@@ -5,11 +5,10 @@ cask 'menumeters' do
   url 'https://www.ragingmenace.com/software/download/MenuMeters.dmg'
   name 'MenuMeters'
   homepage 'https://www.ragingmenace.com/software/menumeters/'
-  license :gpl
 
   depends_on macos: '<= :yosemite'
 
   prefpane 'MenuMeters Installer.app/Contents/Resources/MenuMeters.prefPane'
 
-  zap delete: '~/Library/Preferences/com.ragingmenace.MenuMeters.plist'
+  zap trash: '~/Library/Preferences/com.ragingmenace.MenuMeters.plist'
 end

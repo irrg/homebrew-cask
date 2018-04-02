@@ -1,14 +1,13 @@
 cask 'datadog-agent' do
-  version '5.8.0-1'
-  sha256 '7a9e0306519e067e8e35e96c8f52b1fa41147a1bb5b7410dd0d0e0c85bbfaf38'
+  version '6.1.0-1'
+  sha256 'b7420ec434c4cde19aa489a59cc1f8c5d10765f99ff0b45b4646a9245702c52a'
 
   # s3.amazonaws.com/dd-agent was verified as official when first introduced to the cask
   url 'https://s3.amazonaws.com/dd-agent/datadogagent.dmg'
   name 'Datadog Agent'
   homepage 'https://www.datadoghq.com/'
-  license :bsd
 
-  pkg "datadogagent-#{version}.pkg"
+  pkg "datadog-agent-#{version}.pkg"
 
   preflight do
     require 'etc'
@@ -17,9 +16,9 @@ cask 'datadog-agent' do
 
   uninstall pkgutil: 'com.datadoghq.agent'
 
-  zap delete: '/opt/datadog-agent'
+  zap trash: '/opt/datadog-agent'
 
-  caveats <<-EOS.undent
+  caveats <<~EOS
     You will need to update /opt/datadog-agent/etc/datadog.conf and replace APIKEY with your api key
 
     If you ever want to start/stop the Agent, please use the Datadog Agent App or datadog-agent command.

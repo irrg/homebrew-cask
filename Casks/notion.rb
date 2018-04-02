@@ -1,11 +1,17 @@
 cask 'notion' do
-  version '0.1.6'
-  sha256 '5ae990ccf4da265c059766e24a2bf6e0f2991a5115573be0f8f346e052782178'
+  version '0.1.14'
+  sha256 '45dcc33358ecf88f17eadc4588207aa6b39ff25eb6741707f816894db0a52a6f'
 
-  url "https://www.notion.so/desktop/Notion-#{version}.dmg"
+  # desktop-release.notion-static.com was verified as official when first introduced to the cask
+  url "https://desktop-release.notion-static.com/Notion-#{version}.dmg"
   name 'Notion'
   homepage 'https://www.notion.so/'
-  license :unknown # TODO: change license and remove this comment; ':unknown' is a machine-generated placeholder
 
   app 'Notion.app'
+
+  zap trash: [
+               '~/Library/Application Support/Notion',
+               '~/Library/Preferences/notion.id.helper.plist',
+               '~/Library/Preferences/notion.id.plist',
+             ]
 end

@@ -1,14 +1,23 @@
 cask 'marp' do
-  version '0.0.8'
-  sha256 '6db7310232bf9abb4629f5a1600ebb9b912ffd750aa44eeaaa7c7ebdf5f563c6'
+  version '0.0.12'
+  sha256 '6372ff9b102ed281509733c27eafa757c4d8fd3dd52ac16853d970235a82f09f'
 
   # github.com/yhatt/marp was verified as official when first introduced to the cask
   url "https://github.com/yhatt/marp/releases/download/v#{version}/#{version}-Marp-darwin-x64.dmg"
   appcast 'https://github.com/yhatt/marp/releases.atom',
-          checkpoint: '377f8d38c817a6ffb293c6de539ae7f4cb309cb76244f0f872c43e8eb8625c29'
+          checkpoint: '784caa17c9ed9c7aed6fdb22d7e266ebf6f6e6c21e8906c3f0d8918c9cc30fbf'
   name 'Marp'
   homepage 'https://yhatt.github.io/marp/'
-  license :mit
 
   app 'Marp.app'
+
+  zap trash: [
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/jp.yhatt.marp.sfl*',
+               '~/Library/Application Support/Marp',
+               '~/Library/Caches/jp.yhatt.marp',
+               '~/Library/Preferences/jp.yhatt.marp.helper.plist',
+               '~/Library/Preferences/jp.yhatt.marp.plist',
+               '~/Library/Saved Application State/jp.yhatt.marp.savedState',
+               '~/Library/WebKit/jp.yhatt.marp',
+             ]
 end

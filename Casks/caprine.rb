@@ -1,13 +1,14 @@
 cask 'caprine' do
-  version '1.5.0'
-  sha256 'a1a82622bab81c0418f06ee54267775eda2d5edf6c0191e5b96042b599eec7de'
+  version '2.11.0'
+  sha256 'f89dce60ecce7a8c5e0c8b049d460d3bf3b629779903c9f7a666b13c272665b1'
 
-  url "https://github.com/sindresorhus/caprine/releases/download/#{version}/Caprine-osx-#{version}.zip"
+  url "https://github.com/sindresorhus/caprine/releases/download/v#{version}/Caprine-#{version}.dmg"
   appcast 'https://github.com/sindresorhus/caprine/releases.atom',
-          checkpoint: 'a32978ae893fc011f172d68d3f86f3ff16953b2cf9358c3e23de40d5f394d2b7'
+          checkpoint: '83b67cdaaf421bfbdfb0824f5f141607b3ea562c8b51affb0cf0bad39d63bc3a'
   name 'Caprine'
   homepage 'https://github.com/sindresorhus/caprine'
-  license :mit
+
+  auto_updates true
 
   app 'Caprine.app'
 end

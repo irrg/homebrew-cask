@@ -1,19 +1,14 @@
 cask 'hands-off' do
-  version '3.0.6'
-  sha256 '8c6b8b8f813e16378e5e6652d74c997cdf6ed3922aa6389d008af1efb2d77a09'
+  version '3.2.6'
+  sha256 '5d87db60eb69e7d4ff23de60a785607775c0a7b355bda322f9dfac3369993ad2'
 
   url "https://www.oneperiodic.com/files/Hands%20Off!%20v#{version}.dmg"
   appcast "https://www.oneperiodic.com/handsoff#{version.major}.xml",
-          checkpoint: 'e77c570a88756fa34f6c0a80df1cd7c239e223f34c827343b22edbd88430ee31'
+          checkpoint: '724cd6190abb2f91affac55868725810b2e29bb4751e3b91d2cb5bab18e9b476'
   name 'Hands Off!'
   homepage 'https://www.oneperiodic.com/products/handsoff/'
-  license :commercial
 
   app 'Hands Off!.app'
 
-  postflight do
-    suppress_move_to_applications
-  end
-
-  zap delete: '~/Library/Preferences/com.metakine.handsoff.plist'
+  zap trash: '~/Library/Preferences/com.metakine.handsoff.plist'
 end

@@ -8,12 +8,11 @@ cask 'gmail-notifr' do
           checkpoint: 'a2d9ba8f53b14a5545ee1d1a6c82c81fffde9df8b132cef7b122400344b053c3'
   name 'Gmail Notifr'
   homepage 'https://ashchan.com/projects/gmail-notifr'
-  license :mit
 
   app 'Gmail Notifr.app'
 
-  zap delete: [
-                '~/Library/Preferences/com.ashchan.GmailNotifr.plist',
-                '~/Library/Caches/com.ashchan.GmailNotifr',
-              ]
+  zap trash: [
+               '~/Library/Preferences/com.ashchan.GmailNotifr.plist',
+               '~/Library/Caches/com.ashchan.GmailNotifr',
+             ]
 end

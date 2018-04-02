@@ -1,24 +1,17 @@
 cask 'veracrypt' do
-  version '1.17'
-  sha256 'fa62b0e84f993dc2c58966e4eef91d8fdd3710913f78d62aa352e12187259f89'
+  version '1.22'
+  sha256 'c72257380f5653e6130d4efdd88297b328f29819f4bad82f5563cb906679e2b7'
 
-  # download-codeplex.sec.s-msft.com/Download/Release?ProjectName=veracrypt was verified as official when first introduced to the cask
-  url 'https://download-codeplex.sec.s-msft.com/Download/Release?ProjectName=veracrypt&DownloadId=1537180&FileTime=130999181375130000&Build=21031'
+  # launchpad.net/veracrypt/trunk/ was verified as official when first introduced to the cask
+  url "https://launchpad.net/veracrypt/trunk/#{version}/+download/VeraCrypt_#{version}.dmg"
+  appcast 'https://github.com/veracrypt/VeraCrypt/releases.atom',
+          checkpoint: '45f2781dc568f6801994fe77ff2492296622e7437c12594f667f71a9335d08c9'
   name 'VeraCrypt'
-  homepage 'https://veracrypt.codeplex.com/'
-  license :oss
+  homepage 'https://www.veracrypt.fr/'
 
   depends_on cask: 'osxfuse'
 
   pkg 'VeraCrypt_Installer.pkg'
 
   uninstall pkgutil: 'com.idrix.pkg.veracrypt'
-
-  caveats <<-EOS.undent
-    #{token} requires osxfuse with "MacFUSE Compatibility Layer" enabled.
-    If you did not enable that option, #{token} will fail to install.
-
-    To enable the option, you need to install osxfuse manually (double-click the installer).
-    The installer should be located under #{Hbc.caskroom}/osxfuse
-  EOS
 end

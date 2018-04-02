@@ -1,13 +1,12 @@
 cask 'totals' do
-  version '3.1.2'
-  sha256 'f3577a93423d228e8c6e640f5c87e1d57f40300e73d33a64aa28b68cc984e8c7'
+  version '3.2.1'
+  sha256 'aed3c1d3cef845e2a3e35d2937a0d60dab66247995504561dbd41d5329510cb7'
 
   url "http://www.kedisoft.com/dl/totals/Totals-#{version}.dmg"
-  appcast 'http://kedisoft.com/appcasts/appcast.php?app=totals3',
-          checkpoint: '3eefa6a78c823068357a5c46850cc2fdf568a0755f1bbdf8eaa7719476d21336'
+  appcast "http://kedisoft.com/appcasts/appcast.php?app=totals#{version.major}",
+          checkpoint: 'ff8ea9a756320f0250f39803b03c1451a7539c7a7317b13fa7cb2b69993e0938'
   name 'Totals'
   homepage 'http://www.kedisoft.com/totals/'
-  license :commercial
 
   app 'Totals.app'
 end

@@ -1,13 +1,12 @@
 cask 'mediathekview' do
-  version '11'
-  sha256 'f8a40daeefb37bd835c03674561957414d866dea1ba31e8bb81cd633a0c1a38f'
+  version '13.0.6'
+  sha256 'a53a62a40e94064a9d66adce7b0139f908b8d4d5bc5a8e9d590a07040694a32e'
 
-  url "https://downloads.sourceforge.net/zdfmediathk/Mediathek/Mediathek%20#{version}/MediathekView_#{version}.dmg"
-  appcast 'https://sourceforge.net/projects/zdfmediathk/rss?path=/Mediathek',
-          checkpoint: '840b20fd071949773b6e540a9eb5783065efcc676e5084487f178b1a77627d0f'
+  url "https://download.mediathekview.de/stabil/MediathekView-#{version}.dmg"
+  appcast 'https://mediathekview.de/changelog/index.xml',
+          checkpoint: '0de169102203a6eabee85ee23511411b38cdddc5b8c4fb89d9c1a643f616c190'
   name 'MediathekView'
-  homepage 'https://sourceforge.net/projects/zdfmediathk/'
-  license :gpl
+  homepage 'https://mediathekview.de/'
 
   app 'MediathekView.app'
 end

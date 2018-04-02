@@ -4,10 +4,9 @@ cask 'androidtool' do
 
   url "https://github.com/mortenjust/androidtool-mac/releases/download/#{version}/AndroidTool.zip"
   appcast 'https://github.com/mortenjust/androidtool-mac/releases.atom',
-          checkpoint: '2752aeeb1eb0b820af31f62beb838089fb0299bff005119d2103d318e4e3d580'
+          checkpoint: '7d1026a00e430e46f941f76a7199b56628e939b80977bbc6b6d8e63ea3935809'
   name 'AndroidTool'
   homepage 'https://github.com/mortenjust/androidtool-mac'
-  license :apache
 
   app 'AndroidTool.app'
 end

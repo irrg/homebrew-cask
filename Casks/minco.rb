@@ -1,16 +1,14 @@
 cask 'minco' do
-  version '2.0.27'
-  sha256 '70834dc1356d008dc989c2b645dadbf1c9eacb3b75c661fcc212dba2944b1b62'
+  version '2.0.29'
+  sha256 '1c03dfb0b85718e2a6aad7cb1482897d183d6aa92f0e2fee53a6d7835c25e481'
 
   url "http://www.celmaro.com/files/minco#{version.major}/Minco.zip"
   appcast "http://www.celmaro.com/updates/minco#{version.major}/minco.xml",
-          checkpoint: '652b47a25570c42e1b2ad9f3b1c584a93c53326b7ce87fc16c79a2c2767bbff4'
+          checkpoint: 'a2dabc1b47ee360c02d9379f8cf4b04396bcc11c49176350e670bc8c47e08e9d'
   name 'Minco'
   homepage 'http://www.celmaro.com/minco/'
-  license :commercial
 
   depends_on macos: '>= :yosemite'
-  depends_on arch: :x86_64
 
   app 'Minco.app'
 end

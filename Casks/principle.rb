@@ -1,14 +1,12 @@
 cask 'principle' do
-  version '1.2.7'
-  sha256 '9d888aad31635761412cb0516445e1137edd6bd7303ec1cb8dc9f2bf2b86a440'
+  version '3.7'
+  sha256 '2f2a7c56b3c461bf22e4595596e405c74cf2ece48b529b8e1693c6d6e1c05519'
 
-  # dl.dropboxusercontent.com/u/13897407 was verified as official when first introduced to the cask
-  url "https://dl.dropboxusercontent.com/u/13897407/Principle_#{version.dots_to_underscores}.zip"
-  appcast 'https://dl.dropboxusercontent.com/u/13897407/buildTrain-601A6666-57A4-4C19-BDD3-1387B3CB9719.xml',
-          checkpoint: 'e104e28adcc9612ef6b52986437c41909f375995e2f85353c8f8e6110b08d2f8'
+  url "http://principleformac.com/download/Principle_#{version.dots_to_underscores}.zip"
+  appcast 'http://principleformac.com/update2.xml',
+          checkpoint: 'f8111d5e07f56a4da6c3bb91ae93991777559aab03eba3bb0279faf56b6bf32d'
   name 'Principle'
   homepage 'http://principleformac.com/'
-  license :commercial
 
   app 'Principle.app'
 end

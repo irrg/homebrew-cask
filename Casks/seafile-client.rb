@@ -1,12 +1,11 @@
 cask 'seafile-client' do
-  version '5.1.4'
-  sha256 'e3e36be4fa239f0174c00b7799c4d6aeec435212abc27f9981bb9af7d96fdb0f'
+  version '6.1.7'
+  sha256 '7d2c1c05d4e62af083d8d68732944fae0190a27afc80c8e144e33a45c8cbcd4b'
 
-  # bintray.com/artifact/download/seafile-org was verified as official when first introduced to the cask
-  url "https://bintray.com/artifact/download/seafile-org/seafile/seafile-client-#{version}.dmg"
+  # seadrive.org was verified as official when first introduced to the cask
+  url "https://download.seadrive.org/seafile-client-#{version}.dmg"
   name 'Seafile Client'
-  homepage 'https://seafile.com/'
-  license :gpl
+  homepage 'https://www.seafile.com/'
 
   app 'Seafile Client.app'
 end

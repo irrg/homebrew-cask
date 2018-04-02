@@ -1,13 +1,19 @@
 cask 'tex-live-utility' do
-  version '1.26'
-  sha256 '2af336179817ede13108a4b883223072b0b999b0dff53b9edbc0ef6a704f1f52'
+  version '1.33'
+  sha256 '8b8ac5cb9c4a8450e0fadfdf7d653f5a428eb8b4e4c1484cacd625b3f8acca8e'
 
   url "https://github.com/amaxwell/tlutility/releases/download/#{version}/TeX.Live.Utility.app-#{version}.tar.gz"
-  appcast 'https://raw.githubusercontent.com/amaxwell/tlutility/master/appcast/tlu_appcast.xml',
-          checkpoint: '7c168708a9c3f6274b033455830e2a3c8d7446a93ade7d9822f58addd9918cc4'
+  appcast 'https://github.com/amaxwell/tlutility/releases.atom',
+          checkpoint: 'c4e0ce62618c3c67cdf81425d379a4bda6bc3507ab82429da7f36a7fa3801249'
   name 'TeX Live Utility'
   homepage 'https://github.com/amaxwell/tlutility'
-  license :oss
+
+  auto_updates true
 
   app 'TeX Live Utility.app'
+
+  zap trash: [
+               '~/Library/Application Support/TeX Live Utility',
+               '~/Library/Caches/com.apple.helpd/SDMHelpData/Other/English/HelpSDMIndexFile/TeX Live Utility Help*',
+             ]
 end

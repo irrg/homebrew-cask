@@ -1,19 +1,14 @@
 cask 'razorsql' do
-  version '6.3.26'
+  version '7.4.10'
+  sha256 '201df9ccbbbe3e5347c474986ee456b58971f41e0b5ba8b77d7a5cee3db8b465'
 
-  if Hardware::CPU.is_32_bit? || MacOS.version <= :snow_leopard
-    sha256 '820deccfc41be160db3158f9ed69570bf054d4306a4a0180bf8d89d70376a3db'
-    url "http://downloads.razorsql.com/downloads/#{version.dots_to_underscores}/razorsql#{version.dots_to_underscores}.dmg"
-  else
-    sha256 '1ac51415955b7d72197184763fba707d675cdf9c9c65cac1bee91fe925aca677'
-    url "http://downloads.razorsql.com/downloads/#{version.dots_to_underscores}/razorsql#{version.dots_to_underscores}_x64.dmg"
-  end
-
+  url "http://downloads.razorsql.com/downloads/#{version.dots_to_underscores}/razorsql#{version.dots_to_underscores}_x64.dmg"
+  appcast 'https://razorsql.com/updates.html',
+          checkpoint: '09a9047917ed8dcd6ec67979f126263097c1a46b723bf5deac21047f8ea6cac5'
   name 'RazorSQL'
   homepage 'https://razorsql.com/download_mac.html'
-  license :commercial
 
   app 'RazorSQL.app'
 
-  zap delete: '~/.razorsql'
+  zap trash: '~/.razorsql'
 end

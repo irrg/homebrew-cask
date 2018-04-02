@@ -1,15 +1,21 @@
 cask 'vimr' do
-  version '0.8.0-32'
-  sha256 '8660e7d5157b3165faab8a228f67a1bd63016c51bc300af131b90edc18dda678'
+  version '0.21.1-269'
+  sha256 '75b5d76ef3f11a9cba8a1fdd9859455887c3646d22dd47f26f59251d74047bb3'
 
   # github.com/qvacua/vimr was verified as official when first introduced to the cask
-  url "https://github.com/qvacua/vimr/releases/download/v#{version}/VimR-#{version.sub(%r{-.*}, '')}.tar.bz2"
+  url "https://github.com/qvacua/vimr/releases/download/v#{version}/VimR-v#{version}.tar.bz2"
   appcast 'https://github.com/qvacua/vimr/releases.atom',
-          checkpoint: 'cfd99e9ff5feb321bde77647d980df524d1522c8203df977f7a245254020c250'
+          checkpoint: 'abc07845149c1b0d93bd644737aa7885934c56e33d3aeb8746385df57cd19b83'
   name 'VimR'
   homepage 'http://vimr.org/'
-  license :gpl
 
   app 'VimR.app'
   binary "#{appdir}/VimR.app/Contents/Resources/vimr"
+
+  zap trash: [
+               '~/Library/Caches/com.qvacua.VimR',
+               '~/Library/Preferences/com.qvacua.VimR.plist',
+               '~/Library/Saved Application State/com.qvacua.VimR.savedState',
+               '~/Library/WebKit/com.qvacua.VimR',
+             ]
 end

@@ -1,11 +1,11 @@
 cask 'elm-platform' do
-  version '0.17.1'
-  sha256 '31bb75aa3d815ff7bfa05bd91685615767efa7bcea1d6432f1f5c3c07e7c1c71'
+  version '0.18'
+  sha256 '32671f6497f85c709761e47fceb6b54cf8b74afeeca0ba23ce095492d32995ce'
 
-  url "http://install.elm-lang.org/Elm-Platform-#{version}.pkg"
+  # 44a95588fe4cc47efd96-ec3c2a753a12d2be9f23ba16873acc23.ssl.cf2.rackcdn.com was verified as official when first introduced to the cask
+  url "https://44a95588fe4cc47efd96-ec3c2a753a12d2be9f23ba16873acc23.ssl.cf2.rackcdn.com/Elm-Platform-#{version}.pkg"
   name 'Elm'
-  homepage 'http://www.elm-lang.org'
-  license :bsd
+  homepage 'http://www.elm-lang.org/'
 
   pkg "Elm-Platform-#{version}.pkg"
 

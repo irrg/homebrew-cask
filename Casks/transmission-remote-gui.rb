@@ -1,15 +1,20 @@
 cask 'transmission-remote-gui' do
-  version '5.0.1'
-  sha256 'b961aeb244b2519563837745f3475d21379e3da32bae2b3cbb20ca91d1a90d75'
+  version '5.15.2'
+  sha256 '56014943e1f070604b651b972ee754b9692e1d9993c7dd7edeff93e9b2492d26'
 
-  url "https://downloads.sourceforge.net/transgui/#{version}/transgui-#{version}.dmg"
-  appcast 'https://sourceforge.net/projects/transgui/rss',
-          checkpoint: 'b83a50dcf74d826bb84b9d5aa6e19bfca4a8e0090e00a3feb7976bb9869dfe0a'
+  url "https://github.com/transmission-remote-gui/transgui/releases/download/v#{version}/transgui-#{version}.dmg"
+  appcast 'https://github.com/transmission-remote-gui/transgui/releases.atom',
+          checkpoint: '11acace4862e1b33a3460a745c3f6c2d96297a877fe573b3419d415fafbf9ee0'
   name 'Transmission Remote GUI'
-  homepage 'https://sourceforge.net/projects/transgui/'
-  license :oss
+  homepage 'https://github.com/transmission-remote-gui/transgui'
 
-  pkg 'transgui.pkg'
+  app 'Transmission Remote GUI.app'
 
-  uninstall pkgutil: 'com.transgui.*'
+  uninstall quit: 'com.transgui'
+
+  zap trash: [
+               '~/.config/Transmission Remote GUI/',
+               '~/Library/Preferences/com.transgui.plist',
+               '~/Library/Saved Application State/com.transgui.savedState',
+             ]
 end

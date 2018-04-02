@@ -1,14 +1,12 @@
 cask 'private-internet-access' do
-  version :latest
-  sha256 :no_check
+  version '78'
+  sha256 '467927fb7cbcccf6f3d8f27b4e98c13c7f15b977c585a336d33347d7a95e5c2d'
 
-  url 'https://www.privateinternetaccess.com/installer/installer_osx.dmg'
+  url "https://installers.privateinternetaccess.com/download/pia-v#{version}-installer-mac.dmg"
   name 'Private Internet Access'
-  homepage 'https://www.privateinternetaccess.com'
-  license :gratis
+  homepage 'https://www.privateinternetaccess.com/'
 
-  installer script: 'Private Internet Access Installer.app/Contents/MacOS/runner.sh',
-            sudo:   true
+  installer manual: 'Private Internet Access Installer.app'
 
   postflight do
     set_ownership '~/.pia_manager'
@@ -16,5 +14,5 @@ cask 'private-internet-access' do
 
   uninstall delete: '/Applications/Private Internet Access.app'
 
-  zap       delete: '~/.pia_manager'
+  zap trash: '~/.pia_manager'
 end

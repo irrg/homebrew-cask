@@ -1,13 +1,12 @@
 cask 'openpht' do
-  version '1.6.2.123-e23a7eef'
-  sha256 '40b8e7e987d6a5551b4a8956afc37c06a9f67e30b2631305b4c658b3ae9403a8'
+  version '1.8.0.148-573b6d73'
+  sha256 '153cbba8d9bb7f61c646fc4221f4ab107a15809d7bf5da41204dac49fbba0553'
 
   url "https://github.com/RasPlex/OpenPHT/releases/download/v#{version}/OpenPHT-#{version}-macosx-x86_64.zip"
   appcast 'https://github.com/RasPlex/OpenPHT/releases.atom',
-          checkpoint: '209f89a2f9b9ae847e1ae60f21d58a974c114ce166fa4adfb935b4dc01097b2e'
+          checkpoint: '5aa8f8b4a5287ab3b80fab8379dde771db56fe41435ace8fff12583837c458ed'
   name 'OpenPHT'
   homepage 'https://github.com/RasPlex/OpenPHT'
-  license :gpl
 
   app 'OpenPHT.app'
 end

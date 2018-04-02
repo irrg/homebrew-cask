@@ -13,14 +13,13 @@ cask 'limechat' do
           checkpoint: '73cc22d3e73c2070a39994285ffa411cf4bc9d11e9d6782f16e5dc4a3b0c5175'
   name 'LimeChat'
   homepage 'http://limechat.net/mac/'
-  license :gpl
 
   app 'LimeChat.app'
 
-  zap delete: [
-                '~/Library/Application Support/LimeChat',
-                '~/Library/Caches/net.limechat.LimeChat',
-                '~/Library/Preferences/net.limechat.LimeChat.plist',
-                '~/Library/Preferences/net.limechat.LimeChat-AppStore.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/LimeChat',
+               '~/Library/Caches/net.limechat.LimeChat',
+               '~/Library/Preferences/net.limechat.LimeChat.plist',
+               '~/Library/Preferences/net.limechat.LimeChat-AppStore.plist',
+             ]
 end

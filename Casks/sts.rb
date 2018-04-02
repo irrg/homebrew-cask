@@ -1,22 +1,13 @@
 cask 'sts' do
-  version '3.8.1.RELEASE'
-  sha256 'e54ca0ea1c1348789629b32b0b2ab9bb9c181606449fdc5b023a36919d6df8e7'
+  version '3.9.3.RELEASE,4.7.3'
+  sha256 '2d70c29226a6b5b22563d6275865e9a95eae827951e921720e92a868167f2ee0'
 
-  module Utils
-    def self.eclipse_version
-      '4.6' # find eclipse version at https://spring.io/tools/sts/all
-    end
-
-    def self.eclipse_version_major_minor
-      eclipse_version.split('.').slice(0, 2).join('.')
-    end
-  end
-
-  # springsource.com was verified as official when first introduced to the cask
-  url "http://dist.springsource.com/release/STS/#{version}/dist/e#{Utils.eclipse_version_major_minor}/spring-tool-suite-#{version}-e#{Utils.eclipse_version}-macosx-cocoa-x86_64.tar.gz"
+  # download.springsource.com/release/STS was verified as official when first introduced to the cask
+  url "http://download.springsource.com/release/STS/#{version.before_comma}/dist/e#{version.after_comma.major_minor}/spring-tool-suite-#{version.before_comma}-e#{version.after_comma}-macosx-cocoa-x86_64.dmg"
   name 'Spring Tool Suite'
   homepage 'https://spring.io/tools/sts'
-  license :eclipse
 
-  app 'sts-bundle/STS.app'
+  auto_updates true
+
+  app 'STS.app'
 end

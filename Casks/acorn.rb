@@ -1,19 +1,14 @@
 cask 'acorn' do
-  version '5.5.1'
-  sha256 'df44e48376254355064b7b130ef8d05e29c9d6183786d72fd4eee1a50bffbd64'
+  version '6.1.2'
+  sha256 '0a69736c71f1b46206986cd1ae8aab9e9b732ddeed817648e2accb46bdd37148'
 
   url 'https://secure.flyingmeat.com/download/Acorn.zip'
-  appcast 'http://www.flyingmeat.com/download/acorn5update.xml',
-          checkpoint: 'd9cfab3957f43d1856e2b88aa35cbd13b02e2a29d8c26c14322ad56e26d8ba49'
+  appcast "https://www.flyingmeat.com/download/acorn#{version.major}update.xml",
+          checkpoint: 'ef4b645d3cd13bfe689206f40fbc34c69c204e4fb3aeea878f12975abb7d43b7'
   name 'Acorn'
-  homepage 'http://flyingmeat.com/acorn/'
-  license :commercial
+  homepage 'https://flyingmeat.com/acorn/'
 
   auto_updates true
 
   app 'Acorn.app'
-
-  postflight do
-    suppress_move_to_applications
-  end
 end

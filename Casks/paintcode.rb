@@ -1,11 +1,13 @@
 cask 'paintcode' do
-  version '2.4.2'
-  sha256 '8e052831ba1ea257f265ac7248d560f4872bb71fcaccb214f048c8907c319381'
+  version '3.3.6'
+  sha256 '0e97da6713685c28e8ca198514933ead6401dd6d4963a2eed0c0b8e27cc05de6'
 
-  url "https://www.paintcodeapp.com/content/versions/#{version}/paintcode-trial.zip"
+  # pixelcut.com/paintcode was verified as official when first introduced to the cask
+  url "https://www.pixelcut.com/paintcode#{version.major}/paintcode.zip"
+  appcast "https://www.pixelcut.com/paintcode#{version.major}/appcast.xml",
+          checkpoint: '78737eb412de8b34c038eced33553dac44f569fabb98b42b7a1852e1ae20e377'
   name 'PaintCode'
   homepage 'https://www.paintcodeapp.com/'
-  license :commercial
 
   app 'PaintCode.app'
 end

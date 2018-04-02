@@ -7,16 +7,15 @@ cask 'geektool' do
   appcast 'https://updates.devmate.com/org.tynsoe.GeekTool.xml',
           checkpoint: '919a693af08a23afe84ce132c390c4b05629d91f607f72d8c1af641d418efced'
   name 'GeekTool'
-  homepage 'http://projects.tynsoe.org/en/geektool/'
-  license :mit
+  homepage 'https://www.tynsoe.org/v2/geektool/'
 
   app 'GeekTool.app'
 
-  zap delete: [
-                '~/Library/Preferences/org.tynsoe.GeekTool.plist',
-                '~/Library/Preferences/org.tynsoe.geeklet.file.plist',
-                '~/Library/Preferences/org.tynsoe.geeklet.image.plist',
-                '~/Library/Preferences/org.tynsoe.geeklet.shell.plist',
-                '~/Library/Preferences/org.tynsoe.geektool3.plist',
-              ]
+  zap trash: [
+               '~/Library/Preferences/org.tynsoe.GeekTool.plist',
+               '~/Library/Preferences/org.tynsoe.geeklet.file.plist',
+               '~/Library/Preferences/org.tynsoe.geeklet.image.plist',
+               '~/Library/Preferences/org.tynsoe.geeklet.shell.plist',
+               '~/Library/Preferences/org.tynsoe.geektool3.plist',
+             ]
 end

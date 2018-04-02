@@ -1,13 +1,18 @@
 cask 'lyn' do
-  version '1.7.1'
-  sha256 '9d99d4873b2a58752078739a38345d17e52df7dc2fc73d3eed93234db9d889d2'
+  version '1.9.6'
+  sha256 '5aea9c04665615c0210687430d119108200fe379408f32d99a3f8d51d69986c7'
 
   url "http://www.lynapp.com/downloads/Lyn-#{version}.dmg"
   appcast 'http://www.lynapp.com/lyn/update.xml',
-          checkpoint: 'ae2fdff654b5f3a2e86d868d02521fb9a28d09353188703a1cdfd3cdaf755d84'
+          checkpoint: '089676cf97a198875ddb6c413c5ed80e761c3b946ccc46b0a13b5585b65d1bbb'
   name 'Lyn'
-  homepage 'http://www.lynapp.com/'
-  license :commercial
+  homepage 'https://www.lynapp.com/'
 
   app 'Lyn.app'
+
+  zap trash: [
+               '~/Library/Application Support/Lyn',
+               '~/Library/Caches/com.lynapp.lyn',
+               '~/Library/Preferences/com.lynapp.lyn.plist',
+             ]
 end

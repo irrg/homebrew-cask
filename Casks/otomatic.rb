@@ -1,24 +1,23 @@
 cask 'otomatic' do
-  version '1.0.9.163'
-  sha256 'ed9b0498c46ed3964eb3424df6f6ef5400f94871a62129025e725388caf0d61d'
+  version '1.1.4.195'
+  sha256 '3266ad64f1711b9af231f4d166bf9e4068dbd165c10686930e1ee79fb79bd68a'
 
   url "http://otomatic.codingcurious.com/update/archive/Otomatic.#{version}.zip"
   appcast 'http://otomatic.codingcurious.com/update/appcast.xml',
-          checkpoint: '18d2498229f75f9787c1e5775b256b6cb87a94c8e1fdb2f79a195597f7e2ee55'
+          checkpoint: 'fcc670f4a09731c28c833a5ee6833783c856c54287f307ed3d515af91087be95'
   name 'Otomatic'
-  homepage 'http://codingcurious.com/otomatic/'
-  license :commercial
+  homepage 'https://codingcurious.com/otomatic/'
 
   auto_updates true
 
   app 'Otomatic.app'
 
-  zap delete: [
-                '~/Library/Application\ Support/Otomatic',
-                '~/Library/Application\ Support/Otomatic\ Helper',
-                '~/Library/Caches/com.codingcurious.Otomatic',
-                '~/Library/Logs/Otomatic\ Helper',
-                '~/Library/Preferences/com.codingcurious.Otomatic.plist',
-                '~/Library/Preferences/com.codingcurious.Otomatic-Helper.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Otomatic',
+               '~/Library/Application Support/Otomatic Helper',
+               '~/Library/Caches/com.codingcurious.Otomatic',
+               '~/Library/Logs/Otomatic Helper',
+               '~/Library/Preferences/com.codingcurious.Otomatic.plist',
+               '~/Library/Preferences/com.codingcurious.Otomatic-Helper.plist',
+             ]
 end

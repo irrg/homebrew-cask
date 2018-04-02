@@ -1,16 +1,17 @@
 cask 'netlogo' do
-  version '5.3.0'
-  sha256 'c6cf96f6c3e788b4015d56e6679c5cb6ee46799f610d482ab8a83eff5aae6630'
+  version '6.0.3'
+  sha256 '6d3c9da4d1bffc79689666d6319fa9ff3d2cf7e779027a1c457b3395cc12582f'
 
-  url "https://ccl.northwestern.edu/netlogo/#{version}/NetLogo-#{version.major_minor}.dmg"
+  url "https://ccl.northwestern.edu/netlogo/#{version}/NetLogo-#{version}.dmg"
+  appcast 'https://ccl.northwestern.edu/netlogo/oldversions.shtml',
+          checkpoint: '1351f25e5c59bbf9f6a08cda8371fa2b7aec4f0d75c3736020cb408656833473'
   name 'NetLogo'
   homepage 'https://ccl.northwestern.edu/netlogo/'
-  license :gpl
 
-  app "NetLogo #{version.major_minor}/NetLogo #{version.major_minor}.app"
+  suite "NetLogo #{version}"
 
-  zap delete: [
-                '~/Library/Preferences/org.nlogo.netlogo.plist',
-                '~/Library/Saved Application State/org.nlogo.NetLogo.savedState',
-              ]
+  zap trash: [
+               '~/Library/Preferences/org.nlogo.netlogo.plist',
+               '~/Library/Saved Application State/org.nlogo.NetLogo.savedState',
+             ]
 end

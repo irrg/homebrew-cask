@@ -1,14 +1,13 @@
 cask 'hopper-disassembler' do
-  version '3.11.17'
-  sha256 '6f8b0e7eab53df27452e64141f779b267633095a75637aa721b9bca0424f6e9c'
+  version '4.3.18'
+  sha256 '8d57ba7776b775e1fa0ce8fa9c7db3d8b6c86a60f4771c15be65e7b4ba0bd306'
 
-  # d1f8bh81yd16yv.cloudfront.net was verified as official when first introduced to the cask
-  url "https://d1f8bh81yd16yv.cloudfront.net/Hopper-#{version}.zip"
+  # d2ap6ypl1xbe4k.cloudfront.net was verified as official when first introduced to the cask
+  url "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-#{version}-demo.dmg"
   appcast "https://www.hopperapp.com/HopperWeb/appcast_v#{version.major}.php",
-          checkpoint: 'aa9ff3c6bdcaa52f5c146c894536ff5f631e248c28bedb592573a5b96f3cd1c5'
+          checkpoint: 'fd4aa4573184dc8a0ed081cdd90dc4e4fb3e912306e0e81fa3e88a087603af3f'
   name 'Hopper Disassembler'
   homepage 'https://www.hopperapp.com/'
-  license :commercial
 
   auto_updates true
   depends_on macos: '>= :lion'
@@ -16,11 +15,11 @@ cask 'hopper-disassembler' do
   app "Hopper Disassembler v#{version.major}.app"
   binary "#{appdir}/Hopper Disassembler v#{version.major}.app/Contents/MacOS/hopper"
 
-  zap delete: [
-                '~/Library/Application Support/Hopper',
-                "~/Library/Application Support/Hopper Disassembler v#{version.major}",
-                "~/Library/Caches/com.cryptic-apps.hopper-web-#{version.major}",
-                "~/Library/Preferences/com.cryptic-apps.hopper-web-#{version.major}.plist",
-                "~/Library/Saved Application State/com.cryptic-apps.hopper-web-#{version.major}.savedState",
-              ]
+  zap trash: [
+               '~/Library/Application Support/Hopper',
+               "~/Library/Application Support/Hopper Disassembler v#{version.major}",
+               "~/Library/Caches/com.cryptic-apps.hopper-web-#{version.major}",
+               "~/Library/Preferences/com.cryptic-apps.hopper-web-#{version.major}.plist",
+               "~/Library/Saved Application State/com.cryptic-apps.hopper-web-#{version.major}.savedState",
+             ]
 end

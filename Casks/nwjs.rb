@@ -1,23 +1,13 @@
 cask 'nwjs' do
-  version '0.12.3'
+  version '0.29.3'
+  sha256 '5e06504dea2b499843800f37efed08ef6878d96c6484d20442ec8a4ad8cb5bd4'
 
-  if Hardware::CPU.is_32_bit?
-    sha256 '0170cb6acccb2329b4c31494a4bdb7e336e201204eba96e227e7b02546cc9ebb'
-
-    url "https://dl.nwjs.io/v#{version}/nwjs-v#{version}-osx-ia32.zip"
-
-    binary "nwjs-v#{version}-osx-ia32/nwjc"
-    app "nwjs-v#{version}-osx-ia32/nwjs.app"
-  else
-    sha256 '416747be34ad3bbae008ac6121551fda1505dfac55169cbd025558b29a40faf4'
-
-    url "https://dl.nwjs.io/v#{version}/nwjs-v#{version}-osx-x64.zip"
-
-    binary "nwjs-v#{version}-osx-x64/nwjc"
-    app "nwjs-v#{version}-osx-x64/nwjs.app"
-  end
-
+  url "https://dl.nwjs.io/v#{version}/nwjs-sdk-v#{version}-osx-x64.zip"
+  appcast 'https://github.com/nwjs/nw.js/releases.atom',
+          checkpoint: '4beb8d193f90dc519bba712fa4b2e92eefe0cdc913151eaa22fc91614b8f315f'
   name 'NW.js'
-  homepage 'https://nwjs.io'
-  license :mit
+  homepage 'https://nwjs.io/'
+
+  app "nwjs-sdk-v#{version}-osx-x64/nwjs.app"
+  binary "nwjs-sdk-v#{version}-osx-x64/nwjc"
 end

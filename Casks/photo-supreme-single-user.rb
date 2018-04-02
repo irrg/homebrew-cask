@@ -1,13 +1,12 @@
 cask 'photo-supreme-single-user' do
-  version '3'
-  sha256 :no_check # required as upstream package is updated in place
+  version '4'
+  sha256 'a127ccaf4803eaea13258b8a65ef0977c166fc1db2586aff76817719d9360f30'
 
-  url 'http://www.idimager.com/Trial/PhotoSupreme_V3.pkg'
+  url "http://trial.idimager.com/PhotoSupreme_V#{version}.pkg"
   name 'Photo Supreme Single User'
   homepage 'http://www.idimager.com/WP/?page_id=20'
-  license :commercial
 
-  pkg 'PhotoSupreme_V3.pkg'
+  pkg "PhotoSupreme_V#{version}.pkg"
 
   uninstall pkgutil: 'com.idimager.idimagersu'
 end
